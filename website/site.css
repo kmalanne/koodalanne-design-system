@@ -1,0 +1,120 @@
+/* =========================================================================
+   koodalanne — Website (Part 8, Assets)
+   Layout only. All color, type, spacing, motion and patterns come from the
+   design system (tokens / components / motion / patterns). This file adds
+   page structure — nothing here invents a value that isn't a token.
+   ========================================================================= */
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--kd-font-sans);
+  line-height: var(--kd-leading-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 var(--kd-space-5); }
+
+/* skip link for a11y */
+.skip {
+  position: absolute; left: -9999px; top: 0; z-index: var(--kd-z-toast);
+  background: var(--color-accent); color: var(--color-text-on-accent);
+  padding: var(--kd-space-2) var(--kd-space-4); border-radius: var(--radius-control);
+}
+.skip:focus { left: var(--kd-space-4); top: var(--kd-space-4); }
+
+/* -------------------------------------------------------------------------
+   Nav
+   ------------------------------------------------------------------------- */
+.site-nav {
+  position: sticky; top: 0; z-index: var(--kd-z-sticky);
+  background: color-mix(in srgb, var(--color-bg) 80%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: var(--kd-border-hairline) solid var(--color-border);
+}
+.site-nav .kd-nav { border: 0; }
+.site-nav__brand { display: inline-flex; align-items: center; }
+.site-nav__brand img { display: block; height: 16px; width: auto; }
+@media (max-width: 640px) { .site-nav__links .nav-hide { display: none; } }
+
+/* -------------------------------------------------------------------------
+   Section rhythm
+   ------------------------------------------------------------------------- */
+.section { padding: var(--kd-space-9) 0; border-bottom: var(--kd-border-hairline) solid var(--color-border); }
+.section:last-of-type { border-bottom: 0; }
+.section h2 {
+  font-size: var(--kd-text-3xl);
+  letter-spacing: var(--kd-tracking-tight);
+  line-height: var(--kd-leading-tight);
+  margin: var(--kd-space-3) 0 var(--kd-space-4);
+  max-width: 20ch;
+}
+.lead { color: var(--color-text-muted); max-width: 58ch; font-size: var(--kd-text-lg); margin: 0 0 var(--kd-space-6); }
+
+/* -------------------------------------------------------------------------
+   Hero
+   ------------------------------------------------------------------------- */
+.hero { position: relative; overflow: hidden; padding: var(--kd-space-10) 0 var(--kd-space-9); border-bottom: var(--kd-border-hairline) solid var(--color-border); }
+.hero__bg { position: absolute; inset: 0; z-index: 0; }
+.hero .container { position: relative; z-index: 1; }
+.hero h1 {
+  font-size: clamp(2.5rem, 6.5vw, var(--kd-text-6xl));
+  line-height: var(--kd-leading-tight);
+  letter-spacing: var(--kd-tracking-tight);
+  font-weight: var(--kd-weight-bold);
+  margin: var(--kd-space-4) 0 0;
+  max-width: 15ch;
+}
+.hero__accent { color: var(--color-accent); }
+.hero__sub { color: var(--color-text-muted); font-size: var(--kd-text-lg); max-width: 50ch; margin: var(--kd-space-5) 0 0; }
+.hero__cta { display: flex; gap: var(--kd-space-4); margin-top: var(--kd-space-6); flex-wrap: wrap; }
+.pillars { display: flex; flex-wrap: wrap; gap: var(--kd-space-3); margin-top: var(--kd-space-8); }
+
+/* -------------------------------------------------------------------------
+   Grids
+   ------------------------------------------------------------------------- */
+.grid { display: grid; gap: var(--kd-space-4); }
+.grid--3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.grid--2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.card-num { font-family: var(--kd-font-mono); font-size: var(--kd-text-2xs); letter-spacing: var(--kd-tracking-widest); color: var(--color-accent-secondary); }
+
+/* -------------------------------------------------------------------------
+   Lifecycle flow
+   ------------------------------------------------------------------------- */
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: var(--kd-space-3); font-family: var(--kd-font-mono); font-size: var(--kd-text-sm); }
+.flow__step { padding: var(--kd-space-2) var(--kd-space-4); border: var(--kd-border-hairline) solid var(--color-border); border-radius: var(--radius-control); background: var(--color-surface); white-space: nowrap; }
+.flow__arrow { color: var(--color-accent); }
+
+/* -------------------------------------------------------------------------
+   Quote
+   ------------------------------------------------------------------------- */
+.quote { border: 0; margin: 0; }
+.quote p {
+  font-size: var(--kd-text-3xl);
+  line-height: var(--kd-leading-snug);
+  letter-spacing: var(--kd-tracking-tight);
+  font-weight: var(--kd-weight-medium);
+  max-width: 24ch;
+  margin: 0;
+}
+.quote__mark { color: var(--color-accent); }
+.quote cite { display: block; margin-top: var(--kd-space-5); font-style: normal; color: var(--color-text-muted); font-size: var(--kd-text-base); }
+
+/* -------------------------------------------------------------------------
+   Contact
+   ------------------------------------------------------------------------- */
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: var(--kd-space-8); align-items: start; }
+.contact__mail { font-family: var(--kd-font-mono); color: var(--color-accent); text-decoration: none; }
+@media (max-width: 760px) { .contact { grid-template-columns: 1fr; gap: var(--kd-space-6); } }
+
+/* -------------------------------------------------------------------------
+   Footer
+   ------------------------------------------------------------------------- */
+.site-footer { padding: var(--kd-space-7) 0; color: var(--color-text-subtle); font-size: var(--kd-text-sm); display: flex; justify-content: space-between; gap: var(--kd-space-4); flex-wrap: wrap; align-items: center; }
+.site-footer a { color: var(--color-link); text-decoration: none; }
+.site-footer img { height: 12px; width: auto; opacity: 0.8; vertical-align: middle; }

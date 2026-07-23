@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>koodalanne — Deck</title>
+  <link rel="icon" href="../../design-system/logo/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../design-system/tokens/tokens.css" />
+  <link rel="stylesheet" href="../../design-system/components/components.css" />
+  <link rel="stylesheet" href="../../design-system/patterns/patterns.css" />
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--kd-font-sans); }
+    .deck { scroll-snap-type: y mandatory; overflow-y: auto; height: 100vh; }
+    .slide {
+      scroll-snap-align: start; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+      padding: var(--kd-space-9) clamp(var(--kd-space-5), 8vw, var(--kd-space-10));
+      position: relative; border-bottom: var(--kd-border-hairline) solid var(--color-border);
+    }
+    .eyebrow { font-family: var(--kd-font-mono); font-size: var(--kd-text-xs); letter-spacing: var(--kd-tracking-widest); text-transform: uppercase; color: var(--color-accent-secondary); }
+    h1 { font-size: clamp(2.4rem, 7vw, var(--kd-text-6xl)); line-height: var(--kd-leading-tight); letter-spacing: var(--kd-tracking-tight); font-weight: var(--kd-weight-bold); margin: var(--kd-space-4) 0; max-width: 16ch; }
+    h2 { font-size: clamp(1.8rem, 4.5vw, var(--kd-text-4xl)); line-height: var(--kd-leading-tight); letter-spacing: var(--kd-tracking-tight); margin: var(--kd-space-3) 0 var(--kd-space-6); max-width: 18ch; }
+    p.big { font-size: var(--kd-text-xl); color: var(--color-text-muted); max-width: 44ch; }
+    .accent { color: var(--color-accent); }
+    .brand { height: 22px; }
+    .num { position: absolute; bottom: var(--kd-space-6); right: var(--kd-space-7); font-family: var(--kd-font-mono); font-size: var(--kd-text-xs); color: var(--color-text-subtle); }
+    .tag { position: absolute; bottom: var(--kd-space-6); left: var(--kd-space-7); font-family: var(--kd-font-mono); font-size: var(--kd-text-xs); color: var(--color-text-subtle); }
+    .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--kd-space-4); margin-top: var(--kd-space-4); }
+    .flow { display: flex; flex-wrap: wrap; gap: var(--kd-space-3); align-items: center; font-family: var(--kd-font-mono); margin-top: var(--kd-space-5); }
+    .flow span.s { padding: var(--kd-space-2) var(--kd-space-4); border: var(--kd-border-hairline) solid var(--color-border); border-radius: var(--radius-control); }
+    .flow span.a { color: var(--color-accent); }
+    .quote { font-size: clamp(2rem, 5vw, var(--kd-text-5xl)); line-height: var(--kd-leading-snug); letter-spacing: var(--kd-tracking-tight); font-weight: var(--kd-weight-medium); max-width: 20ch; }
+    .quote .m { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <div class="deck">
+
+    <!-- 1 · Title -->
+    <section class="slide kd-vignette">
+      <div class="hero__bg kd-grid-horizon" style="position:absolute;inset:0" aria-hidden="true"></div>
+      <div style="position:relative">
+        <div class="eyebrow">Independent Software Consultant</div>
+        <h1>Modern engineering with <span class="accent">neon soul</span>.</h1>
+        <img class="brand" src="../../design-system/logo/wordmark.svg" alt="koodalanne" />
+      </div>
+      <div class="tag">koodalanne.com</div>
+      <div class="num">01</div>
+    </section>
+
+    <!-- 2 · Positioning -->
+    <section class="slide">
+      <div class="eyebrow">Positioning</div>
+      <h2>You're not buying code. You're buying <span class="accent">confidence</span>.</h2>
+      <p class="big">Most seniors sell “I know React.” I solve whatever sits between business
+        and code — and own it to production.</p>
+      <div class="num">02</div>
+    </section>
+
+    <!-- 3 · Capabilities -->
+    <section class="slide">
+      <div class="eyebrow">Capabilities</div>
+      <h2>Five pillars, one operator.</h2>
+      <div class="cols">
+        <div class="kd-card"><h3 class="kd-card__title">Engineering</h3><p class="kd-card__body">Ship reliable software teams can maintain.</p></div>
+        <div class="kd-card"><h3 class="kd-card__title">Architecture</h3><p class="kd-card__body">Systems built to grow on.</p></div>
+        <div class="kd-card"><h3 class="kd-card__title">Leadership</h3><p class="kd-card__body">Calm technical direction.</p></div>
+        <div class="kd-card"><h3 class="kd-card__title">Product</h3><p class="kd-card__body">Business and code, bridged.</p></div>
+        <div class="kd-card"><h3 class="kd-card__title">AI delivery</h3><p class="kd-card__body">Accelerated, not hand-wavy.</p></div>
+      </div>
+      <div class="num">03</div>
+    </section>
+
+    <!-- 4 · Lifecycle -->
+    <section class="slide">
+      <div class="eyebrow">Lifecycle</div>
+      <h2>I own the whole line.</h2>
+      <div class="flow">
+        <span class="s">Business</span><span class="a">→</span>
+        <span class="s">Product</span><span class="a">→</span>
+        <span class="s">Architecture</span><span class="a">→</span>
+        <span class="s">Development</span><span class="a">→</span>
+        <span class="s">Delivery</span>
+      </div>
+      <div class="num">04</div>
+    </section>
+
+    <!-- 5 · Quote -->
+    <section class="slide kd-vignette">
+      <blockquote class="quote"><span class="m">“</span>Every solution starts with <span class="accent">understanding the problem.</span><span class="m">”</span></blockquote>
+      <p class="big" style="margin-top:var(--kd-space-5)">That's where I come in.</p>
+      <div class="num">05</div>
+    </section>
+
+    <!-- 6 · Contact -->
+    <section class="slide">
+      <div class="eyebrow">Let's build it</div>
+      <h2>Own the problem. <span class="accent">Build the solution.</span></h2>
+      <p class="big">koodalanne@gmail.com · koodalanne.com</p>
+      <img class="brand" style="margin-top:var(--kd-space-5)" src="../../design-system/logo/wordmark.svg" alt="koodalanne" />
+      <div class="num">06</div>
+    </section>
+
+  </div>
+</body>
+</html>

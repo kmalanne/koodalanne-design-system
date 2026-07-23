@@ -1,0 +1,20 @@
+/* =========================================================================
+   koodalanne — Icon helper
+   Stroke-based icon set. Pair with icons.svg (sprite of <symbol>s).
+   Icons inherit color from `color`; size with font-size or width/height.
+   ========================================================================= */
+
+.kd-icon {
+  width: 1.5em;
+  height: 1.5em;
+  display: inline-block;
+  vertical-align: -0.25em;
+  color: currentColor;         /* stroke uses currentColor */
+  flex: none;
+}
+.kd-icon--sm { width: 1.15em; height: 1.15em; }
+.kd-icon--lg { width: 2em;    height: 2em; }
+
+/* Accent tints */
+.kd-icon--pink { color: var(--color-accent); }
+.kd-icon--cyan { color: var(--color-accent-secondary); }

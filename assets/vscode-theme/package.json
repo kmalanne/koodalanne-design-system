@@ -1,0 +1,28 @@
+{
+  "name": "koodalanne-neon-precision",
+  "displayName": "koodalanne — Neon Precision",
+  "description": "Premium synthwave dark theme from the koodalanne design system. Midnight surfaces, neon pink + cyan accents.",
+  "version": "1.0.0",
+  "publisher": "koodalanne",
+  "license": "MIT",
+  "engines": { "vscode": "^1.70.0" },
+  "categories": ["Themes"],
+  "keywords": ["dark", "neon", "synthwave", "midnight", "koodalanne"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kmalanne/koodalanne-design-system.git",
+    "directory": "assets/vscode-theme"
+  },
+  "homepage": "https://github.com/kmalanne/koodalanne-design-system/tree/main/assets/vscode-theme#readme",
+  "bugs": { "url": "https://github.com/kmalanne/koodalanne-design-system/issues" },
+  "galleryBanner": { "color": "#0A0A12", "theme": "dark" },
+  "contributes": {
+    "themes": [
+      {
+        "label": "koodalanne — Neon Precision",
+        "uiTheme": "vs-dark",
+        "path": "./themes/koodalanne-neon-precision-color-theme.json"
+      }
+    ]
+  }
+}

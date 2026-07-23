@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>koodalanne — Invoice</title>
+  <link rel="icon" href="../../design-system/logo/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../design-system/tokens/tokens.css" />
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--kd-grey-50); color: var(--color-text); font-family: var(--kd-font-sans); line-height: var(--kd-leading-normal); }
+    .page { max-width: 780px; margin: var(--kd-space-7) auto; background: var(--color-surface-elevated); border: var(--kd-border-hairline) solid var(--color-border); box-shadow: var(--kd-shadow-md); padding: var(--kd-space-8); }
+    .top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--kd-space-5); }
+    .top img { height: 16px; }
+    h1 { font-size: var(--kd-text-3xl); letter-spacing: var(--kd-tracking-tight); margin: 0; }
+    .kicker { font-family: var(--kd-font-mono); font-size: var(--kd-text-2xs); letter-spacing: var(--kd-tracking-widest); text-transform: uppercase; color: var(--color-text-subtle); }
+    .parties { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--kd-space-5); margin: var(--kd-space-7) 0; }
+    .parties .k { font-family: var(--kd-font-mono); font-size: var(--kd-text-2xs); text-transform: uppercase; letter-spacing: var(--kd-tracking-wide); color: var(--color-text-subtle); margin-bottom: var(--kd-space-1); }
+    .parties p { margin: 0; font-size: var(--kd-text-sm); }
+    table { width: 100%; border-collapse: collapse; margin-top: var(--kd-space-4); font-size: var(--kd-text-sm); }
+    th { text-align: left; font-family: var(--kd-font-mono); font-size: var(--kd-text-2xs); text-transform: uppercase; letter-spacing: var(--kd-tracking-wide); color: var(--color-text-subtle); border-bottom: var(--kd-border-hairline) solid var(--color-border); padding: var(--kd-space-2) var(--kd-space-3); }
+    td { padding: var(--kd-space-3); border-bottom: var(--kd-border-hairline) solid var(--color-divider); }
+    .num { text-align: right; font-variant-numeric: tabular-nums; }
+    tfoot td { border-bottom: 0; }
+    tfoot .grand td { border-top: var(--kd-border-thick) solid var(--color-accent); font-weight: var(--kd-weight-bold); font-size: var(--kd-text-base); }
+    .pay { margin-top: var(--kd-space-7); background: var(--color-surface); border: var(--kd-border-hairline) solid var(--color-border); border-left: var(--kd-border-thick) solid var(--color-accent-secondary); border-radius: var(--radius-card); padding: var(--kd-space-4) var(--kd-space-5); font-size: var(--kd-text-sm); }
+    .pay .k { font-family: var(--kd-font-mono); font-size: var(--kd-text-2xs); text-transform: uppercase; letter-spacing: var(--kd-tracking-wide); color: var(--color-text-subtle); }
+    .foot { margin-top: var(--kd-space-7); padding-top: var(--kd-space-4); border-top: var(--kd-border-hairline) solid var(--color-border); font-size: var(--kd-text-xs); color: var(--color-text-subtle); display: flex; justify-content: space-between; gap: var(--kd-space-4); flex-wrap: wrap; }
+    @media print { body { background:#fff; } .page { margin:0; border:0; box-shadow:none; max-width:none; padding: 24mm 20mm; } }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <div class="top">
+      <div>
+        <div class="kicker">Invoice</div>
+        <h1>KD-2026-014</h1>
+      </div>
+      <img src="../../design-system/logo/wordmark-ink.svg" alt="koodalanne" />
+    </div>
+
+    <div class="parties">
+      <div>
+        <div class="k">From</div>
+        <p><strong>koodalanne</strong><br />Independent Software Consultant<br />VAT FI00000000<br />koodalanne@gmail.com</p>
+      </div>
+      <div>
+        <div class="k">Bill to</div>
+        <p><strong>Northwind Retail Group</strong><br />Accounts Payable<br />ap@northwind.example</p>
+      </div>
+      <div>
+        <div class="k">Issued</div>
+        <p>21 Jul 2026</p>
+        <div class="k" style="margin-top:var(--kd-space-3)">Due</div>
+        <p>20 Aug 2026 · Net 30</p>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Description</th><th class="num">Days</th><th class="num">Rate</th><th class="num">Amount</th></tr></thead>
+      <tbody>
+        <tr><td>Discovery &amp; architecture — July</td><td class="num">15</td><td class="num">€1,200</td><td class="num">€18,000.00</td></tr>
+        <tr><td>Technical leadership — July</td><td class="num">4</td><td class="num">€1,200</td><td class="num">€4,800.00</td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td colspan="3" class="num">Subtotal</td><td class="num">€22,800.00</td></tr>
+        <tr><td colspan="3" class="num">VAT (24%)</td><td class="num">€5,472.00</td></tr>
+        <tr class="grand"><td colspan="3" class="num">Total due</td><td class="num">€28,272.00</td></tr>
+      </tfoot>
+    </table>
+
+    <div class="pay">
+      <div class="k">Payment details</div>
+      Bank transfer · IBAN FI00 0000 0000 0000 00 · BIC XXXXFIHH · Reference <strong>KD-2026-014</strong>
+    </div>
+
+    <div class="foot">
+      <span>Thank you — confidence from first meeting to production.</span>
+      <span>koodalanne.com</span>
+    </div>
+  </article>
+</body>
+</html>

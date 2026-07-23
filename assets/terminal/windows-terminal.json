@@ -1,0 +1,23 @@
+{
+  "name": "koodalanne — Neon Precision",
+  "background": "#111218",
+  "foreground": "#ECECEE",
+  "cursorColor": "#F890E7",
+  "selectionBackground": "#F890E7",
+  "black": "#0C0D12",
+  "red": "#FF5470",
+  "green": "#33E59B",
+  "yellow": "#FFCF6A",
+  "blue": "#7A5CFF",
+  "purple": "#F890E7",
+  "cyan": "#0BD3D3",
+  "white": "#CFCFD6",
+  "brightBlack": "#2A2D3A",
+  "brightRed": "#FF8095",
+  "brightGreen": "#5FF0B3",
+  "brightYellow": "#FFDD8F",
+  "brightBlue": "#9B83FF",
+  "brightPurple": "#FAAEEF",
+  "brightCyan": "#5EE6E6",
+  "brightWhite": "#FFFFFF"
+}

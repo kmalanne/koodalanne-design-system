@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>koodalanne — Living Style Guide</title>
+  <link rel="icon" href="../logo/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../tokens/tokens.css" />
+  <link rel="stylesheet" href="../components/components.css" />
+  <link rel="stylesheet" href="../motion/motion.css" />
+  <link rel="stylesheet" href="../patterns/patterns.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--kd-font-sans);
+      line-height: var(--kd-leading-normal);
+      /* Miami grid horizon backdrop, kept faint */
+      background-image:
+        linear-gradient(var(--kd-grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--kd-grid-line) 1px, transparent 1px);
+      background-size: var(--kd-grid-size) var(--kd-grid-size);
+    }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: var(--kd-space-8) var(--kd-space-5); }
+
+    /* ---- Hero ---- */
+    .hero {
+      padding: var(--kd-space-9) 0 var(--kd-space-8);
+      border-bottom: var(--kd-border-hairline) solid var(--color-border);
+    }
+    .eyebrow {
+      font-family: var(--kd-font-mono);
+      font-size: var(--kd-text-xs);
+      letter-spacing: var(--kd-tracking-widest);
+      text-transform: uppercase;
+      color: var(--color-accent-secondary);
+    }
+    .logo {
+      font-family: var(--kd-font-display);
+      font-size: clamp(1.4rem, 4vw, var(--kd-text-3xl));
+      color: var(--color-accent);
+      margin: var(--kd-space-4) 0 var(--kd-space-3);
+      text-shadow: var(--kd-glow-pink);
+    }
+    .hero h1 {
+      font-size: var(--kd-text-4xl);
+      line-height: var(--kd-leading-tight);
+      letter-spacing: var(--kd-tracking-tight);
+      font-weight: var(--kd-weight-bold);
+      max-width: 20ch;
+    }
+    .hero p { color: var(--color-text-muted); margin-top: var(--kd-space-4); max-width: 52ch; }
+    .neon-line {
+      height: 2px; width: 96px; margin-top: var(--kd-space-5);
+      background: var(--kd-gradient-neon);
+      box-shadow: var(--kd-glow-cyan);
+    }
+
+    /* ---- Section ---- */
+    section { padding: var(--kd-space-8) 0; border-bottom: var(--kd-border-hairline) solid var(--color-border); }
+    .section-label {
+      font-family: var(--kd-font-mono);
+      font-size: var(--kd-text-xs);
+      letter-spacing: var(--kd-tracking-widest);
+      text-transform: uppercase;
+      color: var(--color-text-subtle);
+      margin-bottom: var(--kd-space-5);
+    }
+    h2 { font-size: var(--kd-text-2xl); letter-spacing: var(--kd-tracking-tight); margin-bottom: var(--kd-space-5); }
+
+    /* ---- Color swatches ---- */
+    .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--kd-space-3); }
+    .swatch {
+      border: var(--kd-border-hairline) solid var(--color-border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: var(--color-surface);
+    }
+    .swatch .chip { height: 72px; }
+    .swatch .meta { padding: var(--kd-space-3); }
+    .swatch .name { font-size: var(--kd-text-sm); font-weight: var(--kd-weight-medium); }
+    .swatch .hex { font-family: var(--kd-font-mono); font-size: var(--kd-text-2xs); color: var(--color-text-subtle); }
+
+    /* ---- Type scale ---- */
+    .type-row { display: flex; align-items: baseline; gap: var(--kd-space-4); padding: var(--kd-space-2) 0; border-bottom: 1px solid var(--color-divider); }
+    .type-row .tag { font-family: var(--kd-font-mono); font-size: var(--kd-text-2xs); color: var(--color-text-subtle); width: 56px; flex: none; }
+
+    /* ---- Layout helpers (component styles now come from components.css) ---- */
+    .row { display: flex; flex-wrap: wrap; gap: var(--kd-space-4); align-items: center; }
+    .stack { display: flex; flex-direction: column; gap: var(--kd-space-4); }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--kd-space-4); }
+
+    /* ---- Gradients ---- */
+    .grad-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--kd-space-4); }
+    .grad { height: 120px; border-radius: var(--radius-card); border: var(--kd-border-hairline) solid var(--color-border); position: relative; }
+    .grad span { position: absolute; bottom: 10px; left: 12px; font-family: var(--kd-font-mono); font-size: var(--kd-text-2xs); background: rgba(12,13,18,.6); padding: 2px 6px; border-radius: 3px; }
+    .g1 { background: var(--kd-gradient-sunset); }
+    .g2 { background: var(--kd-gradient-neon); }
+    .g3 { background: var(--kd-gradient-horizon); }
+
+    /* pixel sun motif removed from the brand */
+
+    footer { padding: var(--kd-space-7) 0; color: var(--color-text-subtle); font-size: var(--kd-text-sm); }
+    a { color: var(--color-link); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- NAV -->
+    <nav class="kd-nav">
+      <a class="kd-nav__brand" href="#">koodalanne</a>
+      <ul class="kd-nav__links">
+        <li><a class="kd-nav__link" href="#" aria-current="page">Work</a></li>
+        <li><a class="kd-nav__link" href="#">Capabilities</a></li>
+        <li><a class="kd-nav__link" href="#">About</a></li>
+        <li><a class="kd-btn kd-btn--secondary kd-btn--sm" href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="eyebrow">Design System · Neon Precision</div>
+      <div class="logo">koodalanne</div>
+      <h1>Modern engineering with neon soul.</h1>
+      <p>The living style guide. Every token below is driven by
+        <code>design-system/tokens/tokens.css</code> — the single source of truth
+        for the website, proposals, slides and every client touchpoint.</p>
+      <div class="neon-line"></div>
+    </header>
+
+    <!-- COLOR -->
+    <section>
+      <div class="section-label">01 — Color</div>
+      <h2>Core palette</h2>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="chip" style="background:var(--kd-pink-300)"></div><div class="meta"><div class="name">Neon Pink</div><div class="hex">#F890E7 · primary</div></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--kd-cyan-300)"></div><div class="meta"><div class="name">Neon Cyan</div><div class="hex">#0BD3D3 · accent</div></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--kd-violet)"></div><div class="meta"><div class="name">Midnight Violet</div><div class="hex">#7A5CFF</div></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--kd-ink-800)"></div><div class="meta"><div class="name">Ink 800</div><div class="hex">#111218 · bg</div></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--kd-ink-700)"></div><div class="meta"><div class="name">Ink 700</div><div class="hex">#181A23 · surface</div></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--kd-ink-600)"></div><div class="meta"><div class="name">Ink 600</div><div class="hex">#20222E · raised</div></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--kd-grey-100)"></div><div class="meta"><div class="name">Light Grey</div><div class="hex">#ECECEE · text</div></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--kd-grey-500)"></div><div class="meta"><div class="name">Mid Grey</div><div class="hex">#7A7A85 · subtle</div></div></div>
+      </div>
+    </section>
+
+    <!-- GRADIENTS -->
+    <section>
+      <div class="section-label">02 — Gradients</div>
+      <h2>One per screen</h2>
+      <div class="grad-grid">
+        <div class="grad g1"><span>--kd-gradient-sunset</span></div>
+        <div class="grad g2"><span>--kd-gradient-neon</span></div>
+        <div class="grad g3"><span>--kd-gradient-horizon</span></div>
+      </div>
+    </section>
+
+    <!-- TYPOGRAPHY -->
+    <section>
+      <div class="section-label">03 — Typography</div>
+      <h2>Type scale · Space Grotesk</h2>
+      <div class="type-row"><span class="tag">6xl</span><span style="font-size:var(--kd-text-6xl);letter-spacing:var(--kd-tracking-tight);font-weight:700">Build</span></div>
+      <div class="type-row"><span class="tag">4xl</span><span style="font-size:var(--kd-text-4xl);letter-spacing:var(--kd-tracking-tight);font-weight:700">Software they trust</span></div>
+      <div class="type-row"><span class="tag">2xl</span><span style="font-size:var(--kd-text-2xl);font-weight:600">Independent Software Consultant</span></div>
+      <div class="type-row"><span class="tag">lg</span><span style="font-size:var(--kd-text-lg)">Helping companies build software they can grow on.</span></div>
+      <div class="type-row"><span class="tag">base</span><span style="font-size:var(--kd-text-base)">Body copy uses Space Grotesk at a comfortable 1.55 line height for long-form reading.</span></div>
+      <div class="type-row"><span class="tag">mono</span><span style="font-family:var(--kd-font-mono);font-size:var(--kd-text-sm)">const koodalanne = "neon precision";</span></div>
+      <div class="type-row"><span class="tag">logo</span><span style="font-family:var(--kd-font-display);font-size:var(--kd-text-lg);color:var(--color-accent)">koodalanne</span></div>
+    </section>
+
+    <!-- COMPONENTS -->
+    <section>
+      <div class="section-label">04 — Components</div>
+      <h2>Buttons &amp; badges</h2>
+      <div class="row" style="margin-bottom:var(--kd-space-5)">
+        <button class="kd-btn kd-btn--primary">Start a project</button>
+        <button class="kd-btn kd-btn--secondary">View work</button>
+        <button class="kd-btn kd-btn--quiet">Read more</button>
+        <button class="kd-btn kd-btn--primary" disabled>Disabled</button>
+      </div>
+      <div class="row" style="margin-bottom:var(--kd-space-5)">
+        <button class="kd-btn kd-btn--secondary kd-btn--sm">Small</button>
+        <button class="kd-btn kd-btn--secondary">Default</button>
+        <button class="kd-btn kd-btn--secondary kd-btn--lg">Large</button>
+      </div>
+      <div class="row" style="margin-bottom:var(--kd-space-7)">
+        <span class="kd-badge"><span class="kd-badge__dot"></span>Available</span>
+        <span class="kd-badge kd-badge--pink">React</span>
+        <span class="kd-badge kd-badge--solid">Featured</span>
+        <span class="kd-badge kd-badge--success">Shipped</span>
+        <span class="kd-badge kd-badge--warning">In review</span>
+        <span class="kd-badge kd-badge--danger">Blocked</span>
+      </div>
+
+      <h2>Cards</h2>
+      <div class="grid-2" style="margin-bottom:var(--kd-space-7)">
+        <article class="kd-card kd-card--interactive">
+          <hr class="kd-neon-line" style="margin:0 0 var(--kd-space-4)" />
+          <h3 class="kd-card__title">Architecture</h3>
+          <p class="kd-card__body">From business goals to a system that scales — owned end to end, not just coded.</p>
+        </article>
+        <article class="kd-card kd-card--interactive">
+          <h3 class="kd-card__title">Technical Leadership</h3>
+          <p class="kd-card__body">Aligning teams, removing uncertainty and keeping delivery moving.</p>
+        </article>
+      </div>
+
+      <h2>Form</h2>
+      <div class="stack" style="max-width:420px;margin-bottom:var(--kd-space-7)">
+        <div class="kd-field">
+          <label class="kd-label" for="email">Work email</label>
+          <input id="email" class="kd-input" type="email" placeholder="you@company.com" />
+          <span class="kd-field__hint">I reply within one business day.</span>
+        </div>
+        <div class="kd-field">
+          <label class="kd-label" for="msg">Project</label>
+          <textarea id="msg" class="kd-textarea" placeholder="What are you building?"></textarea>
+        </div>
+        <div class="kd-field">
+          <label class="kd-label" for="budget">Budget (error state)</label>
+          <input id="budget" class="kd-input kd-input--error" value="—" />
+          <span class="kd-field__hint kd-field__hint--error">Please choose a range.</span>
+        </div>
+        <div class="row"><button class="kd-btn kd-btn--primary">Send</button></div>
+      </div>
+
+      <h2>Table</h2>
+      <div style="margin-bottom:var(--kd-space-7)">
+        <table class="kd-table">
+          <thead><tr><th>Engagement</th><th>Focus</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Platform rebuild</td><td>Architecture</td><td><span class="kd-badge kd-badge--success">Shipped</span></td></tr>
+            <tr><td>Team enablement</td><td>Leadership</td><td><span class="kd-badge kd-badge--info">Active</span></td></tr>
+            <tr><td>AI delivery pilot</td><td>Engineering</td><td><span class="kd-badge kd-badge--warning">Scoping</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Timeline</h2>
+      <ol class="kd-timeline" style="margin-bottom:var(--kd-space-7);max-width:520px">
+        <li class="kd-timeline__item">
+          <div class="kd-timeline__time">01 — Discovery</div>
+          <div class="kd-timeline__title">Understand the problem</div>
+          <p class="kd-timeline__body">Business goals before code. Where does ownership get lost?</p>
+        </li>
+        <li class="kd-timeline__item">
+          <div class="kd-timeline__time">02 — Architecture</div>
+          <div class="kd-timeline__title">Design the system</div>
+          <p class="kd-timeline__body">A structure the team can confidently grow on.</p>
+        </li>
+        <li class="kd-timeline__item">
+          <div class="kd-timeline__time">03 — Delivery</div>
+          <div class="kd-timeline__title">Build &amp; ship</div>
+          <p class="kd-timeline__body">Momentum, even when requirements aren't perfect.</p>
+        </li>
+      </ol>
+
+      <h2>Code</h2>
+      <pre class="kd-code"><span class="kd-code__m">/* one primary signal per screen */</span>
+<span class="kd-code__c">.kd-btn--primary</span> {
+  background: <span class="kd-code__s">var(--color-accent)</span>;
+  color: <span class="kd-code__s">var(--color-text-on-accent)</span>;
+  border-radius: <span class="kd-code__s">var(--radius-control)</span>;
+}
+<span class="kd-code__c">.kd-btn--primary:hover</span> {
+  box-shadow: <span class="kd-code__s">var(--kd-glow-pink)</span>;
+}</pre>
+    </section>
+
+    <!-- LOGO -->
+    <section>
+      <div class="section-label">05 — Logo</div>
+      <h2>The logo family</h2>
+      <p style="color:var(--color-text-muted);max-width:52ch;margin-bottom:var(--kd-space-6)">
+        The actual Press Start 2P letterforms, outlined to vector — pixel-accurate
+        yet font-independent. Wordmark is <strong>always lowercase</strong>. Spec:
+        <code>brand/04-logo.md</code>.</p>
+      <div class="grid-2" style="margin-bottom:var(--kd-space-6)">
+        <div class="kd-card">
+          <img src="../logo/wordmark.svg" alt="koodalanne wordmark" style="display:block;width:100%;max-width:360px;height:auto" />
+          <p class="kd-card__body" style="margin-top:var(--kd-space-4)">Primary wordmark · Press Start 2P · pink on midnight</p>
+        </div>
+        <div class="kd-card" style="display:flex;flex-direction:column;align-items:flex-start;justify-content:center">
+          <img src="../logo/wordmark-white.svg" alt="koodalanne wordmark, white" style="display:block;width:100%;max-width:360px;height:auto" />
+          <p class="kd-card__body" style="margin-top:var(--kd-space-4)">One-color variant · white on photography / dark</p>
+        </div>
+      </div>
+      <div class="row" style="gap:var(--kd-space-6);align-items:flex-end">
+        <figure style="margin:0;text-align:center"><img src="../logo/icon.svg" alt="app icon" width="96" height="96" style="border-radius:var(--radius-card)" /><figcaption class="kd-section-label" style="margin-top:var(--kd-space-2)">icon</figcaption></figure>
+        <figure style="margin:0;text-align:center"><img src="../logo/monogram.svg" alt="monogram k" height="72" /><figcaption class="kd-section-label" style="margin-top:var(--kd-space-2)">monogram</figcaption></figure>
+        <figure style="margin:0;text-align:center"><img src="../logo/favicon.svg" alt="favicon" width="48" height="48" /><figcaption class="kd-section-label" style="margin-top:var(--kd-space-2)">favicon</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- MOTION -->
+    <section>
+      <div class="section-label">06 — Motion</div>
+      <h2>Interactions</h2>
+      <p style="color:var(--color-text-muted);max-width:52ch;margin-bottom:var(--kd-space-6)">
+        Subtle only — hover the elements below. Everything collapses under
+        <code>prefers-reduced-motion</code>. Spec: <code>brand/05-motion.md</code>.</p>
+      <div class="grid-2" style="margin-bottom:var(--kd-space-6)">
+        <article class="kd-card kd-lift">
+          <h3 class="kd-card__title">.kd-lift</h3>
+          <p class="kd-card__body">Hover: 4px rise + pink glow. The one place glow reaches full strength.</p>
+        </article>
+        <article class="kd-card kd-ticks">
+          <h3 class="kd-card__title">.kd-cursor</h3>
+          <p class="kd-card__body">Ship it<span class="kd-cursor"></span></p>
+        </article>
+      </div>
+      <div class="row" style="gap:var(--kd-space-6);margin-bottom:var(--kd-space-6)">
+        <button class="kd-btn kd-btn--secondary kd-hover-glow">.kd-hover-glow</button>
+        <a href="#" class="kd-underline" style="color:var(--color-text)">.kd-underline</a>
+        <span class="kd-badge kd-badge--pink kd-pulse"><span class="kd-badge__dot"></span>.kd-pulse</span>
+        <span class="logo kd-flicker" style="margin:0;font-size:var(--kd-text-base)" title="hover to flicker">koodalanne</span>
+      </div>
+      <div class="stack kd-stagger" style="max-width:420px">
+        <div class="kd-badge" style="align-self:flex-start">.kd-stagger · item one</div>
+        <div class="kd-badge" style="align-self:flex-start">.kd-stagger · item two</div>
+        <div class="kd-badge" style="align-self:flex-start">.kd-stagger · item three</div>
+      </div>
+      <hr class="kd-horizon-line kd-draw" style="margin-top:var(--kd-space-6)" />
+    </section>
+
+    <!-- PATTERNS -->
+    <section>
+      <div class="section-label">07 — Patterns</div>
+      <h2>Backgrounds &amp; graphics</h2>
+      <p style="color:var(--color-text-muted);max-width:52ch;margin-bottom:var(--kd-space-6)">
+        Faint by default — one per composition. Spec: <code>brand/06-patterns.md</code>.</p>
+      <div class="grad-grid">
+        <div class="grad kd-grid" style="background-color:var(--color-surface)"><span>.kd-grid</span></div>
+        <div class="grad kd-grid-horizon" style="background-color:var(--color-surface)"><span>.kd-grid-horizon</span></div>
+        <div class="grad kd-diagonal" style="background-color:var(--color-surface)"><span>.kd-diagonal</span></div>
+        <div class="grad kd-scanline" style="background-color:var(--color-surface)"><span>.kd-scanline</span></div>
+        <div class="grad kd-vignette" style="background-color:var(--color-surface)"><span>.kd-vignette</span></div>
+        <div class="grad kd-ticks" style="background-color:var(--color-surface)"><span>.kd-ticks</span></div>
+      </div>
+      <hr class="kd-horizon-line" style="margin-top:var(--kd-space-6)" />
+      <p class="kd-section-label" style="margin-top:var(--kd-space-3)">.kd-horizon-line</p>
+    </section>
+
+    <footer>
+      koodalanne Design System · Neon Precision · Source of truth:
+      <a href="../tokens/tokens.css">tokens.css</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>koodalanne — Independent Software Consultant</title>
+  <meta name="description" content="Independent software consultant. Hands-on engineering, technical leadership and software architecture from idea to production." />
+
+  <meta property="og:title" content="koodalanne — Independent Software Consultant" />
+  <meta property="og:description" content="I help teams move software forward." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="../design-system/logo/og-image.svg" />
+
+  <link rel="icon" href="../design-system/logo/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="../design-system/logo/icon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="../design-system/tokens/tokens.css" />
+  <link rel="stylesheet" href="../design-system/components/components.css" />
+  <link rel="stylesheet" href="../design-system/motion/motion.css" />
+  <link rel="stylesheet" href="../design-system/patterns/patterns.css" />
+  <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+  <a class="skip" href="#hero">Skip to content</a>
+
+  <div class="stage kd-vignette">
+    <!-- signature background: grid horizon + soft violet lighting -->
+    <div class="stage__bg kd-grid-horizon" aria-hidden="true"></div>
+    <div class="stage__glow" aria-hidden="true"></div>
+
+    <!-- NAV -->
+    <header>
+      <div class="container">
+        <nav class="nav" aria-label="Primary">
+          <a class="nav__brand" href="#hero" aria-label="koodalanne — home">
+            <img src="../design-system/logo/wordmark.svg" alt="koodalanne" />
+          </a>
+          <div class="nav__social">
+            <a class="kd-underline" href="https://www.linkedin.com/in/kmalanne" target="_blank" rel="noopener">LinkedIn</a>
+            <span class="sep" aria-hidden="true">·</span>
+            <a class="kd-underline" href="https://github.com/kmalanne" target="_blank" rel="noopener">GitHub</a>
+            <span class="sep" aria-hidden="true">·</span>
+            <a class="kd-underline" href="mailto:koodalanne@gmail.com">Email</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero-row">
+      <main class="container" id="hero">
+        <section class="hero kd-stagger">
+          <div class="kd-eyebrow">Independent Software Consultant</div>
+          <h1>I help teams move software <span class="hero__accent">forward.</span></h1>
+          <p class="sub">Hands-on engineering, technical leadership and software architecture
+            from idea to production.</p>
+
+          <div class="expertise">
+            <span>Engineering</span><span class="dot">•</span>
+            <span>Leadership</span><span class="dot">•</span>
+            <span>Architecture</span><span class="dot">•</span>
+            <span>Product</span><span class="dot">•</span>
+            <span>AI-assisted Development</span>
+          </div>
+
+          <div class="cta">
+            <a class="kd-btn kd-btn--primary kd-btn--lg" href="mailto:koodalanne@gmail.com">Start a conversation</a>
+            <a class="kd-btn kd-btn--secondary kd-btn--lg" href="cv.html">View CV →</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- VALUE STATEMENT -->
+    <footer>
+      <div class="container">
+        <blockquote class="value">
+          <p><span class="q">“</span>Every solution starts with <span class="accent">understanding the problem.</span><span class="q">”</span></p>
+        </blockquote>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

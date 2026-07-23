@@ -1,0 +1,34 @@
+# koodalanne — Neon Precision (Alacritty)
+# Paste into ~/.config/alacritty/alacritty.toml (or import).
+
+[colors.primary]
+background = "#111218"
+foreground = "#ececee"
+
+[colors.cursor]
+cursor = "#f890e7"
+text   = "#0c0d12"
+
+[colors.selection]
+background = "#f890e7"
+text       = "#0c0d12"
+
+[colors.normal]
+black   = "#0c0d12"
+red     = "#ff5470"
+green   = "#33e59b"
+yellow  = "#ffcf6a"
+blue    = "#7a5cff"
+magenta = "#f890e7"
+cyan    = "#0bd3d3"
+white   = "#cfcfd6"
+
+[colors.bright]
+black   = "#2a2d3a"
+red     = "#ff8095"
+green   = "#5ff0b3"
+yellow  = "#ffdd8f"
+blue    = "#9b83ff"
+magenta = "#faaeef"
+cyan    = "#5ee6e6"
+white   = "#ffffff"
