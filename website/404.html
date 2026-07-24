@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>koodalanne — 404</title>
+  <meta name="description" content="Page not found — the route you followed doesn't exist. Head back to koodalanne.com." />
+  <link rel="icon" href="../design-system/logo/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../design-system/tokens/tokens.css" />
+  <link rel="stylesheet" href="../design-system/components/components.css" />
+  <link rel="stylesheet" href="../design-system/patterns/patterns.css" />
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: var(--color-bg); color: var(--color-text); font-family: var(--kd-font-sans); }
+    .stage { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: var(--kd-space-7); }
+    .bg { position: absolute; inset: 0; z-index: 0; }
+    .glow { position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(55% 45% at 50% 108%, rgba(122,92,255,.28), transparent 70%); }
+    .content { position: relative; z-index: 1; max-width: 46ch; }
+    .content img.bike { width: 132px; height: 132px; margin-bottom: var(--kd-space-6); }
+    .eyebrow { font-family: var(--kd-font-mono); font-size: var(--kd-text-xs); letter-spacing: var(--kd-tracking-widest); text-transform: uppercase; color: var(--color-accent-secondary); }
+    h1 { font-size: clamp(2rem, 5vw, var(--kd-text-4xl)); letter-spacing: var(--kd-tracking-tight); line-height: var(--kd-leading-tight); margin: var(--kd-space-3) 0 var(--kd-space-4); }
+    h1 .accent { color: var(--color-accent); }
+    p { color: var(--color-text-muted); font-size: var(--kd-text-lg); margin: 0 auto var(--kd-space-6); }
+    .code { position: absolute; bottom: var(--kd-space-6); left: 0; right: 0; font-family: var(--kd-font-mono); font-size: var(--kd-text-2xs); letter-spacing: var(--kd-tracking-wide); color: var(--color-text-subtle); }
+  </style>
+</head>
+<body>
+  <div class="stage kd-vignette">
+    <div class="bg kd-grid-horizon" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="content">
+      <img class="bike" src="../design-system/mascot/bike-alt.svg" alt="" />
+      <div class="eyebrow">Error 404</div>
+      <h1>This route <span class="accent">ends here.</span></h1>
+      <p>The page you're after took a different road. Let's get you back on track.</p>
+      <a class="kd-btn kd-btn--primary kd-btn--lg" href="index.html">Back to home</a>
+    </div>
+    <div class="code">GET /?? → 404 · koodalanne.com</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>koodalanne — The Companion</title>
+  <link rel="icon" href="../logo/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../tokens/tokens.css" />
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--kd-font-sans); }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: var(--kd-space-8) var(--kd-space-6); }
+    .eyebrow { font-family: var(--kd-font-mono); font-size: var(--kd-text-xs); letter-spacing: var(--kd-tracking-widest); text-transform: uppercase; color: var(--color-accent-secondary); }
+    h1 { font-size: var(--kd-text-3xl); letter-spacing: var(--kd-tracking-tight); margin: var(--kd-space-3) 0 var(--kd-space-2); }
+    .lead { color: var(--color-text-muted); max-width: 62ch; margin: 0 0 var(--kd-space-7); }
+    code { font-family: var(--kd-font-mono); font-size: 0.9em; color: var(--color-accent-secondary); }
+    .hero-mark { display: flex; align-items: center; gap: var(--kd-space-6); flex-wrap: wrap; margin-bottom: var(--kd-space-8); }
+    .hero-mark img { width: 200px; height: 200px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--kd-space-5); }
+    .card { border: var(--kd-border-hairline) solid var(--color-border); border-radius: var(--radius-card); padding: var(--kd-space-5); text-align: center; }
+    .card .art { height: 120px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-control); }
+    .card .art img { width: 96px; height: 96px; }
+    .on-dark { background: var(--color-surface); }
+    .on-light { background: var(--kd-grey-100); }
+    .name { font-weight: var(--kd-weight-semibold); margin-top: var(--kd-space-3); }
+    .desc { color: var(--color-text-muted); font-size: var(--kd-text-sm); margin-top: var(--kd-space-1); }
+    .sizes { display: flex; align-items: flex-end; gap: var(--kd-space-6); margin-top: var(--kd-space-8); color: var(--color-text); }
+    .sizes figure { margin: 0; text-align: center; color: var(--color-text-subtle); }
+    .sizes figcaption { font-family: var(--kd-font-mono); font-size: var(--kd-text-2xs); margin-top: var(--kd-space-2); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow">Brand companion</div>
+    <h1>The Bike</h1>
+    <p class="lead">One iconic gravel bike — always drawn the same, like a signature. Authentic
+      (cycling is genuine, not decoration), understated, and built from the same palette as
+      everything else: one pink and one cyan accent on an ink base. It appears quietly — README,
+      404, loading states, stickers — never on the hero.</p>
+
+    <div class="hero-mark">
+      <img src="bike-tile.svg" alt="koodalanne companion app icon" />
+      <div>
+        <div class="name" style="font-size:var(--kd-text-lg)">App icon &middot; <code>bike-tile.svg</code></div>
+        <p class="desc" style="max-width:38ch">Ink tile, cyan hairline — for avatars, stickers and social.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card"><div class="art on-dark"><img src="bike.svg" alt="bike, dark" /></div><div class="name">Primary</div><div class="desc"><code>bike.svg</code> · light on ink</div></div>
+      <div class="card"><div class="art on-light"><img src="bike-ink.svg" alt="bike, light" /></div><div class="name">Light surface</div><div class="desc"><code>bike-ink.svg</code> · ink on light</div></div>
+      <div class="card"><div class="art on-dark"><img src="bike-mono.svg" alt="bike, one-color" style="color:var(--color-accent)" /></div><div class="name">One-color</div><div class="desc"><code>bike-mono.svg</code> · currentColor</div></div>
+      <div class="card"><div class="art on-dark" style="padding:0;overflow:hidden"><img src="bike-tile.svg" alt="bike tile" style="width:120px;height:120px" /></div><div class="name">App icon</div><div class="desc"><code>bike-tile.svg</code></div></div>
+    </div>
+
+    <div class="sizes">
+      <figure><img src="bike-mono.svg" alt="" width="16" height="16" /><figcaption>16</figcaption></figure>
+      <figure><img src="bike-mono.svg" alt="" width="24" height="24" /><figcaption>24</figcaption></figure>
+      <figure><img src="bike-mono.svg" alt="" width="40" height="40" /><figcaption>40</figcaption></figure>
+      <figure><img src="bike.svg" alt="" width="72" height="72" /><figcaption>72</figcaption></figure>
+    </div>
+
+    <div class="eyebrow" style="margin-top:var(--kd-space-8)">Swapped accents</div>
+    <h1 style="font-size:var(--kd-text-2xl)">Pink &harr; Cyan</h1>
+    <p class="lead">Same signature, accents traded: the saddle and handlebar carry the pink,
+      while the hubs turn cyan. A subtle alternate for contexts where the palette needs to flip.</p>
+
+    <div class="grid">
+      <div class="card"><div class="art on-dark"><img src="bike-alt.svg" alt="bike swapped, dark" /></div><div class="name">Primary</div><div class="desc"><code>bike-alt.svg</code> · light on ink</div></div>
+      <div class="card"><div class="art on-light"><img src="bike-ink-alt.svg" alt="bike swapped, light" /></div><div class="name">Light surface</div><div class="desc"><code>bike-ink-alt.svg</code> · ink on light</div></div>
+      <div class="card"><div class="art on-dark" style="padding:0;overflow:hidden"><img src="bike-tile-alt.svg" alt="bike swapped tile" style="width:120px;height:120px" /></div><div class="name">App icon</div><div class="desc"><code>bike-tile-alt.svg</code></div></div>
+    </div>
+  </div>
+</body>
+</html>

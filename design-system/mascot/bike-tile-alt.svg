@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" role="img" aria-label="koodalanne companion — app icon (swapped accents)">
+  <rect width="512" height="512" rx="56" fill="#0C0D12" />
+  <g transform="translate(54.4,29.2) scale(4.2)" stroke="#ECECEE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="26" cy="63" r="14" />
+    <circle cx="70" cy="63" r="14" />
+    <path d="M26 63 L46 63 L39 43 L57 41 L46 63 M39 43 L26 63 M57 41 L70 63 M39 43 L35 32 M57 41 L58 38" />
+    <path d="M29 32 L42 31" stroke="#F890E7" />
+    <path d="M58 38 L63 36 C69 35 69 42 63 42" stroke="#F890E7" />
+    <circle cx="26" cy="63" r="2.5" fill="#0BD3D3" stroke="none" />
+    <circle cx="70" cy="63" r="2.5" fill="#0BD3D3" stroke="none" />
+  </g>
+  <rect x="1" y="1" width="510" height="510" rx="55" fill="none" stroke="#F890E7" stroke-opacity="0.18" />
+</svg>

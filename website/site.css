@@ -40,7 +40,12 @@ body {
 .site-nav .kd-nav { border: 0; }
 .site-nav__brand { display: inline-flex; align-items: center; }
 .site-nav__brand img { display: block; height: 16px; width: auto; }
-@media (max-width: 640px) { .site-nav__links .nav-hide { display: none; } }
+@media (max-width: 640px) {
+  .container { padding: 0 var(--kd-space-5); }
+  .nav-hide { display: none; }
+  .hero__cta { gap: var(--kd-space-3); }
+  .hero__cta .kd-btn { flex: 1 1 42%; justify-content: center; }
+}
 
 /* -------------------------------------------------------------------------
    Section rhythm
@@ -115,6 +120,9 @@ body {
 /* -------------------------------------------------------------------------
    Footer
    ------------------------------------------------------------------------- */
-.site-footer { padding: var(--kd-space-7) 0; color: var(--color-text-subtle); font-size: var(--kd-text-sm); display: flex; justify-content: space-between; gap: var(--kd-space-4); flex-wrap: wrap; align-items: center; }
+.site-footer { padding: var(--kd-space-7) 0; color: var(--color-text-subtle); font-size: var(--kd-text-sm); }
 .site-footer a { color: var(--color-link); text-decoration: none; }
-.site-footer img { height: 12px; width: auto; opacity: 0.8; vertical-align: middle; }
+.footer-row { display: flex; justify-content: space-between; align-items: center; gap: var(--kd-space-5); width: 100%; flex-wrap: wrap; }
+.footer-sig { display: inline-flex; align-items: center; gap: var(--kd-space-3); }
+.footer-bike { height: 16px; width: auto; opacity: 0.85; }
+.footer-mark { height: 12px; width: auto; }

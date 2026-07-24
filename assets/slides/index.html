@@ -20,14 +20,20 @@
       padding: var(--kd-space-9) clamp(var(--kd-space-5), 8vw, var(--kd-space-10));
       position: relative; border-bottom: var(--kd-border-hairline) solid var(--color-border);
     }
+    /* keep content above the vignette overlay so the brand isn't dimmed */
+    .hero__bg { z-index: 0; }
+    .slide.kd-vignette::after { z-index: 1; }
+    .eyebrow, h1, h2, .quote, .big, .cols, .flow, .brand { position: relative; z-index: 2; }
+    .tag, .num, .corner-bike { z-index: 2; }
     .eyebrow { font-family: var(--kd-font-mono); font-size: var(--kd-text-xs); letter-spacing: var(--kd-tracking-widest); text-transform: uppercase; color: var(--color-accent-secondary); }
     h1 { font-size: clamp(2.4rem, 7vw, var(--kd-text-6xl)); line-height: var(--kd-leading-tight); letter-spacing: var(--kd-tracking-tight); font-weight: var(--kd-weight-bold); margin: var(--kd-space-4) 0; max-width: 16ch; }
     h2 { font-size: clamp(1.8rem, 4.5vw, var(--kd-text-4xl)); line-height: var(--kd-leading-tight); letter-spacing: var(--kd-tracking-tight); margin: var(--kd-space-3) 0 var(--kd-space-6); max-width: 18ch; }
     p.big { font-size: var(--kd-text-xl); color: var(--color-text-muted); max-width: 44ch; }
     .accent { color: var(--color-accent); }
-    .brand { height: 22px; }
+    .brand { height: 22px; filter: drop-shadow(0 0 10px rgba(248, 144, 231, 0.45)); }
     .num { position: absolute; bottom: var(--kd-space-6); right: var(--kd-space-7); font-family: var(--kd-font-mono); font-size: var(--kd-text-xs); color: var(--color-text-subtle); }
     .tag { position: absolute; bottom: var(--kd-space-6); left: var(--kd-space-7); font-family: var(--kd-font-mono); font-size: var(--kd-text-xs); color: var(--color-text-subtle); }
+    .corner-bike { position: absolute; top: var(--kd-space-6); right: var(--kd-space-7); width: 46px; height: 46px; opacity: 0.9; }
     .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--kd-space-4); margin-top: var(--kd-space-4); }
     .flow { display: flex; flex-wrap: wrap; gap: var(--kd-space-3); align-items: center; font-family: var(--kd-font-mono); margin-top: var(--kd-space-5); }
     .flow span.s { padding: var(--kd-space-2) var(--kd-space-4); border: var(--kd-border-hairline) solid var(--color-border); border-radius: var(--radius-control); }
@@ -48,6 +54,7 @@
         <img class="brand" src="../../design-system/logo/wordmark.svg" alt="koodalanne" />
       </div>
       <div class="tag">koodalanne.com</div>
+      <img class="corner-bike" src="../../design-system/mascot/bike-alt.svg" alt="" />
       <div class="num">01</div>
     </section>
 

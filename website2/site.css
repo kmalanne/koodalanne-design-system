@@ -92,5 +92,33 @@ a { color: inherit; }
 .value .q { color: var(--color-accent); }
 
 @media (max-width: 560px) {
+  .container { padding: 0 var(--kd-space-5); }
+  .nav__brand img { height: 13px; }
   .nav__social { gap: var(--kd-space-2); font-size: var(--kd-text-xs); }
+  /* compact the hero so the CTAs always stay on screen */
+  .hero { padding: var(--kd-space-2) 0; }
+  .hero h1 { font-size: clamp(1.85rem, 8vw, 2.3rem); margin-top: var(--kd-space-2); }
+  .sub { font-size: var(--kd-text-sm); margin-top: var(--kd-space-2); }
+  /* expertise: one tidy cyan-ruled column — no dangling bullets */
+  .expertise {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--kd-space-1);
+    width: auto;
+    margin-top: var(--kd-space-3);
+    border: 0;
+    border-left: var(--kd-border-thin) solid var(--color-accent-secondary);
+    border-radius: 0;
+    padding: var(--kd-space-1) 0 var(--kd-space-1) var(--kd-space-4);
+    font-size: var(--kd-text-sm);
+  }
+  .expertise .dot { display: none; }
+  .cta { margin-top: var(--kd-space-4); }
+  .cta .kd-btn { flex: 1 1 auto; justify-content: center; --_btn-py: var(--kd-space-3); --_btn-px: var(--kd-space-5); font-size: var(--kd-text-sm); }
+  .value { padding: var(--kd-space-3) 0; }
+}
+@media (max-width: 380px) {
+  .nav { flex-wrap: wrap; row-gap: var(--kd-space-3); }
+  .nav__social { width: 100%; }
 }

@@ -28,7 +28,9 @@ koodalanne/
 │   ├── 03-components.md               ← component specs, anatomy, states, usage rules
 │   ├── 04-logo.md                     ← logo family, clear space, variants, favicon/OG wiring
 │   ├── 05-motion.md                   ← motion principles, timing scale, interaction utilities
-│   └── 06-patterns.md                 ← background patterns, the recurring recipe, rules
+│   ├── 06-patterns.md                 ← background patterns, the recurring recipe, rules
+│   ├── 07-engineering-doctrine.md     ← laws, invariants, smells, philosophy tests (reasoning layer)
+│   └── 08-companion.md                ← the brand companion (the bike), variants & rules
 └── design-system/
     ├── tokens/
     │   ├── tokens.css                 ← ★ SOURCE OF TRUTH (CSS custom properties)
@@ -45,6 +47,8 @@ koodalanne/
     │   └── icons.css                   ← .kd-icon helper
     ├── logo/
     │   └── *.svg                       ← pixel logo family (wordmark, monogram, icon, favicon, OG)
+    ├── mascot/
+    │   └── bike*.svg                   ← the companion (bike) — primary, ink, mono, tile + preview
     └── preview/
         └── index.html                 ← living style guide (open in a browser)
 website/
@@ -141,6 +145,23 @@ patterns. The first assembled product screen lives at
 
 ---
 
+## Conformance — the Brand Linter
+
+The brand isn't just documented, it's **enforceable**. `brandos` lints the pages
+against the measurable invariants in the
+[Engineering Doctrine](brand/07-engineering-doctrine.md) — one `<h1>`, headline
+≤ 8 words, one primary CTA per view, no buzzwords, heading order, image alt text,
+reduced-motion — and scores each page (AAA / AA / A / FAIL, threshold 90%).
+
+```bash
+npm run lint:brand                       # default page set
+node tools/brandos/brandos.mjs website2/index.html   # any file(s)
+```
+
+Exits non-zero below AA, so it drops straight into CI.
+
+---
+
 ## Roadmap (Brand Bible parts)
 
 - [x] **Part 1 — Identity** · [brand/01-identity.md](brand/01-identity.md)
@@ -153,6 +174,8 @@ patterns. The first assembled product screen lives at
 - [x] **Part 7 — Imagery (patterns)** · [brand/06-patterns.md](brand/06-patterns.md) · [design-system/patterns/patterns.css](design-system/patterns/patterns.css) — grid, horizon, diagonal, scanline, ticks, washes
 - [x] **Part 7 — Imagery (icons)** · [design-system/icons/icons.svg](design-system/icons/icons.svg) — 21 stroke icons (sprite) + `.kd-icon` helper
 - [x] **Part 8 — Assets** · [website](website/index.html) · [proposal](assets/proposal/index.html) · [invoice](assets/invoice/index.html) · [slides](assets/slides/index.html) · [social banners](assets/social/) · [wallpapers](assets/wallpapers/) · [VS Code theme](assets/vscode-theme/) · [terminal themes](assets/terminal/)
+- [x] **Doctrine & conformance** · [brand/07-engineering-doctrine.md](brand/07-engineering-doctrine.md) · [tools/brandos/brandos.mjs](tools/brandos/brandos.mjs) — reasoning layer + enforceable linter (`npm run lint:brand`)
+- [x] **Companion** · [brand/08-companion.md](brand/08-companion.md) · [design-system/mascot/](design-system/mascot/) — the bike: primary, light-surface, one-color & app-icon variants
 
 Every asset maps back to the landing screen and the same tokens — website,
 proposal, invoice, deck, social, wallpapers, editor and terminal all feel like

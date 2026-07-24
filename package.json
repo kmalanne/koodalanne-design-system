@@ -1,0 +1,10 @@
+{
+  "name": "koodalanne-brand-os",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Tooling for the koodalanne Brand Bible — the brandos conformance linter.",
+  "scripts": {
+    "lint:brand": "node tools/brandos/brandos.mjs"
+  }
+}
