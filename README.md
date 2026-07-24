@@ -6,6 +6,12 @@ _The name is always written **koodalanne** — all lowercase, even the first let
 
 > Modern engineering with neon soul.
 
+<p align="center">
+  <img src="design-system/mascot/bike.svg" alt="koodalanne companion — a gravel bike drawn in neon strokes" width="180" height="180" />
+</p>
+
+<p align="center"><em>The Companion — one iconic gravel bike, always drawn the same, like a signature.</em></p>
+
 This repository is the **koodalanne Brand Bible**, engineered like a software
 design system rather than written as a static PDF. Design tokens are the single
 source of truth; the website, proposals, slide decks, GitHub profile and every
