@@ -27,8 +27,22 @@ a { color: inherit; }
 .nav__social .sep { color: var(--color-text-subtle); }
 
 /* Header */
-.cv-header { padding: var(--kd-space-8) 0 var(--kd-space-6); border-bottom: var(--kd-border-hairline) solid var(--color-border); }
+.cv-header { padding: var(--kd-space-8) 0 var(--kd-space-6); border-bottom: var(--kd-border-hairline) solid var(--color-border); display: flex; gap: var(--kd-space-7); align-items: flex-start; }
+.cv-header__main { flex: 1 1 auto; min-width: 0; }
+.cv-portrait {
+  flex: none;
+  width: 112px; height: 112px;
+  margin-top: var(--kd-space-2);
+  border-radius: var(--kd-radius-pill);
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.04);
+  border: var(--kd-border-hairline) solid var(--color-border-strong);
+  box-shadow: var(--kd-shadow-md);
+  transition: border-color var(--kd-duration-normal) var(--kd-ease-out), box-shadow var(--kd-duration-normal) var(--kd-ease-out);
+}
+.cv-portrait:hover { border-color: var(--color-accent-secondary); box-shadow: var(--kd-glow-cyan); }
 .cv-header h1 { font-size: var(--kd-text-3xl); letter-spacing: var(--kd-tracking-tight); line-height: var(--kd-leading-tight); margin: var(--kd-space-3) 0 0; max-width: 20ch; }
+.cv-header .role { font-size: var(--kd-text-lg); font-weight: var(--kd-weight-medium); color: var(--color-accent-secondary); letter-spacing: var(--kd-tracking-tight); margin: var(--kd-space-2) 0 0; }
 .bio { color: var(--color-text-muted); font-size: var(--kd-text-lg); max-width: 66ch; margin: var(--kd-space-4) 0 0; }
 .cv-contact { margin-top: var(--kd-space-5); font-family: var(--kd-font-mono); font-size: var(--kd-text-xs); color: var(--color-text-subtle); display: flex; flex-wrap: wrap; gap: var(--kd-space-3); align-items: center; }
 .cv-contact a { color: var(--color-accent-secondary); text-decoration: none; }
@@ -74,6 +88,8 @@ a { color: inherit; }
   .nav__social { gap: var(--kd-space-2); font-size: var(--kd-text-xs); }
   .cv-entry__head, .cv-role__head { gap: var(--kd-space-1); }
   .cv-grid { gap: var(--kd-space-6) var(--kd-space-5); }
+  .cv-header { flex-direction: column; gap: var(--kd-space-4); }
+  .cv-portrait { order: -1; width: 76px; height: 76px; margin-top: 0; }
 }
 @media (max-width: 380px) {
   .nav { flex-wrap: wrap; row-gap: var(--kd-space-3); }
