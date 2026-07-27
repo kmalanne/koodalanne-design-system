@@ -1,0 +1,252 @@
+/* =========================================================================
+   koodalanne — Design Tokens (Source of Truth)
+   Design language: "Neon Precision"
+   -------------------------------------------------------------------------
+   Layer 1: primitives  — raw brand values, never used directly in UI
+   Layer 2: semantic     — meaning-based tokens, used by components
+   -------------------------------------------------------------------------
+   Everything else (Tailwind, React, docs, proposals) maps back to this file.
+   ========================================================================= */
+
+:root {
+  /* ----------------------------------------------------------------------
+     1. PRIMITIVES — Color
+     ---------------------------------------------------------------------- */
+
+  /* Neon Pink — primary brand color */
+  --kd-pink-50:  #fdeafb;
+  --kd-pink-100: #fbcdf5;
+  --kd-pink-200: #faaeef;
+  --kd-pink-300: #f890e7; /* ★ brand primary */
+  --kd-pink-400: #e574d2;
+  --kd-pink-500: #c957b6;
+  --kd-pink-600: #9c3f8d;
+  --kd-pink-700: #6f2a63;
+
+  /* Neon Cyan — accent color */
+  --kd-cyan-50:  #d9fbfb;
+  --kd-cyan-100: #a6f4f4;
+  --kd-cyan-200: #5ee6e6;
+  --kd-cyan-300: #0bd3d3; /* ★ brand accent */
+  --kd-cyan-400: #0ab3b3;
+  --kd-cyan-500: #088f8f;
+  --kd-cyan-600: #066a6a;
+  --kd-cyan-700: #044848;
+
+  /* Sunset — used only in gradients, never as a flat fill */
+  --kd-sunset-1: #ff6ac1; /* hot pink */
+  --kd-sunset-2: #ff8a5c; /* coral */
+  --kd-sunset-3: #ffcf6a; /* amber */
+  --kd-violet:   #7a5cff; /* midnight violet */
+
+  /* Ink / Midnight — the dark foundation (never pure #000 in UI) */
+  --kd-ink-900:  #0c0d12; /* deepest */
+  --kd-ink-800:  #111218; /* ★ base background */
+  --kd-ink-700:  #181a23; /* ★ midnight surface */
+  --kd-ink-600:  #20222e; /* elevated surface */
+  --kd-ink-500:  #2a2d3a; /* borders / hairlines */
+  --kd-ink-400:  #3a3e4e; /* strong border */
+
+  /* Greys */
+  --kd-grey-50:  #f6f6f8;
+  --kd-grey-100: #ececee; /* ★ light grey */
+  --kd-grey-200: #cfcfd6;
+  --kd-grey-300: #b4b4be;
+  --kd-grey-400: #9494a0;
+  --kd-grey-500: #7a7a85; /* ★ mid grey */
+  --kd-grey-600: #5a5a66;
+
+  /* Absolutes */
+  --kd-white: #ffffff;
+  --kd-black: #000000;
+
+  /* Signal colors — neon-tinted, not stock */
+  --kd-signal-success: #33e59b;
+  --kd-signal-warning: #ffcf6a;
+  --kd-signal-danger:  #ff5470;
+  --kd-signal-info:    #0bd3d3;
+
+  /* ----------------------------------------------------------------------
+     1. PRIMITIVES — Typography
+     ---------------------------------------------------------------------- */
+  --kd-font-display: "Press Start 2P", "Space Grotesk", monospace; /* logo/accent ONLY */
+  --kd-font-sans: "Space Grotesk", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --kd-font-mono: "JetBrains Mono", "IBM Plex Mono", "SFMono-Regular", ui-monospace, monospace;
+
+  /* Modular type scale (1.250 — major third), base 16px */
+  --kd-text-2xs:  0.694rem; /* 11.1px */
+  --kd-text-xs:   0.8rem;   /* 12.8px */
+  --kd-text-sm:   0.9rem;   /* 14.4px */
+  --kd-text-base: 1rem;     /* 16px   */
+  --kd-text-lg:   1.25rem;  /* 20px   */
+  --kd-text-xl:   1.563rem; /* 25px   */
+  --kd-text-2xl:  1.953rem; /* 31.25px*/
+  --kd-text-3xl:  2.441rem; /* 39px   */
+  --kd-text-4xl:  3.052rem; /* 48.8px */
+  --kd-text-5xl:  3.815rem; /* 61px   */
+  --kd-text-6xl:  4.768rem; /* 76.3px */
+
+  --kd-weight-regular: 400;
+  --kd-weight-medium: 500;
+  --kd-weight-semibold: 600;
+  --kd-weight-bold: 700;
+
+  --kd-leading-tight: 1.1;
+  --kd-leading-snug: 1.3;
+  --kd-leading-normal: 1.55;
+  --kd-leading-relaxed: 1.75;
+
+  --kd-tracking-tight: -0.02em;
+  --kd-tracking-normal: 0;
+  --kd-tracking-wide: 0.04em;
+  --kd-tracking-widest: 0.18em; /* for display / labels */
+
+  /* ----------------------------------------------------------------------
+     1. PRIMITIVES — Space (4px base grid)
+     ---------------------------------------------------------------------- */
+  --kd-space-0:   0;
+  --kd-space-1:   0.25rem;  /* 4  */
+  --kd-space-2:   0.5rem;   /* 8  */
+  --kd-space-3:   0.75rem;  /* 12 */
+  --kd-space-4:   1rem;     /* 16 */
+  --kd-space-5:   1.5rem;   /* 24 */
+  --kd-space-6:   2rem;     /* 32 */
+  --kd-space-7:   3rem;     /* 48 */
+  --kd-space-8:   4rem;     /* 64 */
+  --kd-space-9:   6rem;     /* 96 */
+  --kd-space-10:  8rem;     /* 128 */
+
+  /* ----------------------------------------------------------------------
+     1. PRIMITIVES — Radius (mostly sharp; pixel detail = 0)
+     ---------------------------------------------------------------------- */
+  --kd-radius-none: 0;       /* pixel/CRT feel */
+  --kd-radius-sm: 2px;
+  --kd-radius-md: 6px;
+  --kd-radius-lg: 12px;
+  --kd-radius-xl: 20px;
+  --kd-radius-pill: 999px;
+
+  /* ----------------------------------------------------------------------
+     1. PRIMITIVES — Border widths
+     ---------------------------------------------------------------------- */
+  --kd-border-hairline: 1px;
+  --kd-border-thin: 2px;   /* icon family stroke */
+  --kd-border-thick: 3px;
+
+  /* ----------------------------------------------------------------------
+     1. PRIMITIVES — Shadow & Glow
+     ---------------------------------------------------------------------- */
+  --kd-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --kd-shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
+  --kd-shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.55);
+
+  --kd-glow-pink: 0 0 0 1px rgba(248, 144, 231, 0.35), 0 0 24px rgba(248, 144, 231, 0.35);
+  --kd-glow-cyan: 0 0 0 1px rgba(11, 211, 211, 0.35), 0 0 24px rgba(11, 211, 211, 0.30);
+  --kd-glow-focus: 0 0 0 2px var(--kd-ink-800), 0 0 0 4px var(--kd-cyan-300);
+
+  /* ----------------------------------------------------------------------
+     1. PRIMITIVES — Gradients
+     ---------------------------------------------------------------------- */
+  --kd-gradient-sunset: linear-gradient(135deg, var(--kd-sunset-1) 0%, var(--kd-sunset-2) 45%, var(--kd-sunset-3) 100%);
+  --kd-gradient-neon: linear-gradient(135deg, var(--kd-pink-300) 0%, var(--kd-violet) 55%, var(--kd-cyan-300) 100%);
+  --kd-gradient-horizon: linear-gradient(180deg, var(--kd-ink-800) 0%, var(--kd-ink-700) 60%, #241c33 100%);
+
+  /* Miami grid horizon (background pattern) */
+  --kd-grid-line: rgba(248, 144, 231, 0.12);
+  --kd-grid-size: 40px;
+
+  /* ----------------------------------------------------------------------
+     1. PRIMITIVES — Motion (subtle only)
+     ---------------------------------------------------------------------- */
+  --kd-duration-instant: 80ms;
+  --kd-duration-fast: 160ms;
+  --kd-duration-normal: 240ms;
+  --kd-duration-slow: 420ms;
+  --kd-duration-ambient: 8s; /* slow gradient / grid drift */
+
+  --kd-ease-standard: cubic-bezier(0.2, 0.0, 0.0, 1.0);
+  --kd-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --kd-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* ----------------------------------------------------------------------
+     1. PRIMITIVES — Elevation / layering
+     ---------------------------------------------------------------------- */
+  --kd-z-base: 0;
+  --kd-z-raised: 10;
+  --kd-z-sticky: 100;
+  --kd-z-overlay: 1000;
+  --kd-z-modal: 2000;
+  --kd-z-toast: 3000;
+
+  /* ----------------------------------------------------------------------
+     2. SEMANTIC TOKENS — what components actually consume
+     ---------------------------------------------------------------------- */
+
+  /* Surfaces */
+  --color-bg: var(--kd-ink-800);
+  --color-surface: var(--kd-ink-700);
+  --color-surface-elevated: var(--kd-ink-600);
+  --color-surface-inverse: var(--kd-grey-100);
+
+  /* Text */
+  --color-text: var(--kd-grey-100);
+  --color-text-muted: var(--kd-grey-300);
+  --color-text-subtle: var(--kd-grey-500);
+  --color-text-inverse: var(--kd-ink-800);
+  --color-text-on-accent: var(--kd-ink-900);
+
+  /* Brand / accents */
+  --color-accent: var(--kd-pink-300);
+  --color-accent-hover: var(--kd-pink-200);
+  --color-accent-secondary: var(--kd-cyan-300);
+  --color-accent-secondary-hover: var(--kd-cyan-200);
+
+  /* Lines */
+  --color-border: var(--kd-ink-500);
+  --color-border-strong: var(--kd-ink-400);
+  --color-divider: rgba(236, 236, 238, 0.08);
+
+  /* Interaction */
+  --color-focus-ring: var(--kd-cyan-300);
+  --color-link: var(--kd-pink-300);
+  --color-link-hover: var(--kd-pink-200);
+
+  /* Feedback */
+  --color-success: var(--kd-signal-success);
+  --color-warning: var(--kd-signal-warning);
+  --color-danger: var(--kd-signal-danger);
+  --color-info: var(--kd-signal-info);
+
+  /* Component defaults */
+  --radius-control: var(--kd-radius-md);
+  --radius-card: var(--kd-radius-lg);
+  --shadow-card: var(--kd-shadow-md);
+  --glow-interactive: var(--kd-glow-pink);
+  --focus-ring: var(--kd-glow-focus);
+}
+
+/* Optional light theme (documents, invoices, letterhead) */
+[data-theme="light"] {
+  --color-bg: var(--kd-white);
+  --color-surface: var(--kd-grey-50);
+  --color-surface-elevated: var(--kd-white);
+  --color-text: var(--kd-ink-800);
+  --color-text-muted: var(--kd-grey-600);
+  --color-text-subtle: var(--kd-grey-500);
+  --color-text-inverse: var(--kd-white);
+  --color-border: var(--kd-grey-200);
+  --color-border-strong: var(--kd-grey-300);
+  --color-divider: rgba(17, 18, 24, 0.08);
+  --color-link: var(--kd-pink-500);
+  --color-link-hover: var(--kd-pink-600);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --kd-duration-instant: 0ms;
+    --kd-duration-fast: 0ms;
+    --kd-duration-normal: 0ms;
+    --kd-duration-slow: 0ms;
+    --kd-duration-ambient: 0ms;
+  }
+}

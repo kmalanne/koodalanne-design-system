@@ -60,7 +60,7 @@ koodalanne/
 website/
 ├── index.html                         ← first production screen (landing page)
 └── site.css                           ← page layout on top of the design system
-website2/
+website-final/
 ├── index.html                         ← single-screen landing (one-viewport variant)
 ├── cv.html                            ← CV / experience page
 ├── cv.css                             ← CV page layout
@@ -161,7 +161,7 @@ reduced-motion — and scores each page (AAA / AA / A / FAIL, threshold 90%).
 
 ```bash
 npm run lint:brand                       # default page set
-node tools/brandos/brandos.mjs website2/index.html   # any file(s)
+node tools/brandos/brandos.mjs website-final/index.html   # any file(s)
 ```
 
 Exits non-zero below AA, so it drops straight into CI.

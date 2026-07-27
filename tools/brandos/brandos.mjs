@@ -15,8 +15,8 @@ import { resolve, relative } from "node:path";
 const ROOT = resolve(new URL("../..", import.meta.url).pathname);
 
 const DEFAULT_FILES = [
-  "website2/index.html",
-  "website2/cv.html",
+  "website-final/index.html",
+  "website-final/cv.html",
   "website/index.html",
 ];
 

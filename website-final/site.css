@@ -1,0 +1,124 @@
+/* =========================================================================
+   koodalanne — website-final (single-screen landing)
+   Layout only. Color, type, spacing, motion and patterns come from the design
+   system. Goal: the whole page reads as one viewport — premium, calm, confident.
+   ========================================================================= */
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--kd-font-sans);
+  line-height: var(--kd-leading-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; }
+
+.stage {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+}
+.stage__bg { position: absolute; inset: 0; z-index: 0; }
+/* atmospheric lighting — one soft violet rise, low and centered */
+.stage__glow {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(60% 50% at 50% 108%, rgba(122, 92, 255, 0.28), transparent 70%);
+}
+.container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 var(--kd-space-6); position: relative; z-index: 1; }
+
+/* skip link */
+.skip { position: absolute; left: -9999px; top: 0; z-index: var(--kd-z-toast); background: var(--color-accent); color: var(--color-text-on-accent); padding: var(--kd-space-2) var(--kd-space-4); border-radius: var(--radius-control); }
+.skip:focus { left: var(--kd-space-4); top: var(--kd-space-4); }
+
+/* -------------------------------------------------------------------------
+   Nav
+   ------------------------------------------------------------------------- */
+.nav { display: flex; align-items: center; justify-content: space-between; gap: var(--kd-space-5); padding: var(--kd-space-4) 0; border-bottom: var(--kd-border-hairline) solid var(--color-border); }
+.nav__brand { display: inline-flex; align-items: center; }
+.nav__brand img { display: block; height: 15px; width: auto; }
+.nav__social { display: flex; align-items: center; gap: var(--kd-space-3); font-size: var(--kd-text-sm); }
+.nav__social a { color: var(--color-text-muted); text-decoration: none; transition: color var(--kd-duration-normal) var(--kd-ease-out); }
+.nav__social a:hover { color: var(--color-accent); }
+.nav__social .sep { color: var(--color-text-subtle); }
+
+/* -------------------------------------------------------------------------
+   Hero (vertically centered in the 1fr row)
+   ------------------------------------------------------------------------- */
+.hero-row { display: flex; align-items: center; }
+.hero { padding: var(--kd-space-7) 0; }
+.hero h1 {
+  font-size: clamp(2.2rem, 5.4vw, 3.6rem);
+  line-height: 1.06;
+  letter-spacing: var(--kd-tracking-tight);
+  font-weight: var(--kd-weight-bold);
+  margin: var(--kd-space-4) 0 0;
+  max-width: 15ch;
+}
+.hero__accent { color: var(--color-accent); }
+.sub { color: var(--color-text-muted); font-size: var(--kd-text-lg); max-width: 50ch; margin: var(--kd-space-5) 0 0; }
+
+.expertise {
+  margin-top: var(--kd-space-6);
+  display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--kd-space-3);
+  border: var(--kd-border-hairline) solid var(--color-border);
+  border-radius: var(--radius-control);
+  padding: var(--kd-space-3) var(--kd-space-5);
+  font-size: var(--kd-text-sm);
+}
+.expertise span { color: var(--color-text); font-weight: var(--kd-weight-medium); }
+.expertise .dot { color: var(--color-accent-secondary); }
+
+.cta { display: flex; align-items: center; gap: var(--kd-space-5); margin-top: var(--kd-space-7); flex-wrap: wrap; }
+
+/* -------------------------------------------------------------------------
+   Value statement (bottom band)
+   ------------------------------------------------------------------------- */
+.value { border-top: var(--kd-border-hairline) solid var(--color-border); padding: var(--kd-space-5) 0 var(--kd-space-6); }
+.value p {
+  margin: 0;
+  font-size: clamp(1.15rem, 2.4vw, var(--kd-text-xl));
+  line-height: var(--kd-leading-snug);
+  letter-spacing: var(--kd-tracking-tight);
+  color: var(--color-text);
+  max-width: 46ch;
+}
+.value .accent { color: var(--color-accent); }
+.value .q { color: var(--color-accent); }
+
+@media (max-width: 560px) {
+  .container { padding: 0 var(--kd-space-5); }
+  .nav__brand img { height: 13px; }
+  .nav__social { gap: var(--kd-space-2); font-size: var(--kd-text-xs); }
+  /* compact the hero so the CTAs always stay on screen */
+  .hero { padding: var(--kd-space-2) 0; }
+  .hero h1 { font-size: clamp(1.85rem, 8vw, 2.3rem); margin-top: var(--kd-space-2); }
+  .sub { font-size: var(--kd-text-sm); margin-top: var(--kd-space-2); }
+  /* expertise: one tidy cyan-ruled column — no dangling bullets */
+  .expertise {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--kd-space-1);
+    width: auto;
+    margin-top: var(--kd-space-3);
+    border: 0;
+    border-left: var(--kd-border-thin) solid var(--color-accent-secondary);
+    border-radius: 0;
+    padding: var(--kd-space-1) 0 var(--kd-space-1) var(--kd-space-4);
+    font-size: var(--kd-text-sm);
+  }
+  .expertise .dot { display: none; }
+  .cta { margin-top: var(--kd-space-4); }
+  .cta .kd-btn { flex: 1 1 auto; justify-content: center; --_btn-py: var(--kd-space-3); --_btn-px: var(--kd-space-5); font-size: var(--kd-text-sm); }
+  .value { padding: var(--kd-space-3) 0; }
+}
+@media (max-width: 380px) {
+  .nav { flex-wrap: wrap; row-gap: var(--kd-space-3); }
+  .nav__social { width: 100%; }
+}
