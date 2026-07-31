@@ -276,9 +276,19 @@ function gallery(groups) {
     );
   };
 
-  const section = (g) =>
-    `<section><header class="sec"><h2>${esc(g.title)}</h2><p>${esc(g.desc)}</p></header>` +
-    `<div class="grid">${g.sizes.map(card).join("")}</div></section>`;
+  const section = (g) => {
+    const desktop = g.sizes.filter((s) => s.w >= s.h);
+    const mobile = g.sizes.filter((s) => s.h > s.w);
+    let inner = `<header class="sec"><h2>${esc(g.title)}</h2><p>${esc(g.desc)}</p></header>`;
+    if (desktop.length) {
+      if (mobile.length) inner += `<h3 class="subhead">Desktop</h3>`;
+      inner += `<div class="grid">${desktop.map(card).join("")}</div>`;
+    }
+    if (mobile.length) {
+      inner += `<h3 class="subhead">Mobile</h3><div class="grid mobile">${mobile.map(card).join("")}</div>`;
+    }
+    return `<section>${inner}</section>`;
+  };
 
   return `<!doctype html>
 <html lang="en">
@@ -316,8 +326,10 @@ function gallery(groups) {
   header.sec h2::before{content:"";display:inline-block;width:10px;height:10px;
     margin-right:10px;background:var(--pink)}
   header.sec p{margin:0;color:var(--muted);font-size:.9rem}
-  .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
-  .card.mobile{grid-column:span 1}
+  .grid{display:grid;gap:20px;align-items:start;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+  .grid.mobile{grid-template-columns:repeat(auto-fill,minmax(180px,220px))}
+  .subhead{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:22px 0 12px}
   .card{margin:0;background:var(--ink-700);border:1px solid var(--line)}
   .thumb{position:relative;display:block;overflow:hidden;background:#0c0d12}
   .thumb img{display:block;width:100%;height:100%;object-fit:cover}
