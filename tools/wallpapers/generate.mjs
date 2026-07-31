@@ -197,8 +197,8 @@ const VARIANTS = [
   { name: "grid-slogan", title: "Grid + slogan", desc: "Pink wordmark and slogan on the Miami grid.", opts: { bg: "grid", withBike: false, withSlogan: true, label: "grid + slogan" } },
   { name: "diagonal", title: "Diagonal", desc: "Pink wordmark on the diagonal line field.", opts: { bg: "diagonal", withBike: false, label: "diagonal" } },
   { name: "diagonal-slogan", title: "Diagonal + slogan", desc: "Pink wordmark and slogan on the diagonal line field.", opts: { bg: "diagonal", withBike: false, withSlogan: true, label: "diagonal + slogan" } },
-  { name: "bike", title: "Bike + slogan", desc: "Gravel-bike mascot, wordmark and slogan.", opts: { bg: "both", withBike: true, withSlogan: true, label: "bike + slogan" } },
-  { name: "bike-plain", title: "Bike", desc: "Gravel-bike mascot and wordmark, no slogan.", opts: { bg: "both", withBike: true, withSlogan: false, label: "bike" } },
+  { name: "bike", title: "Bike + slogan", desc: "Gravel-bike mascot, wordmark and slogan.", opts: { bg: "grid", withBike: true, withSlogan: true, label: "bike + slogan" } },
+  { name: "bike-plain", title: "Bike", desc: "Gravel-bike mascot and wordmark, no slogan.", opts: { bg: "grid", withBike: true, withSlogan: false, label: "bike" } },
 ];
 
 // The original glow wallpapers (hand-authored, not regenerated here).
