@@ -142,48 +142,40 @@ function build(w, h, opts) {
   const wWidth = portrait ? w * 0.78 : w * 0.5;
   const wHeight = (wWidth * WORD_H) / WORD_W;
 
+  // optional stacked elements: [bike] · wordmark · [rule + slogan]
+  const bikeW = portrait ? w * 0.3 : w * 0.13;
+  const bikeScale = bikeW / 96;
+  const bikeH = opts.withBike ? 96 * bikeScale : 0;
+  const gapBikeWord = wHeight * 1.0;
+
+  const sloganSize = portrait ? w * 0.03 : w * 0.0135;
+  const gapWordRule = wHeight * 0.7;
+  const gapRuleSlogan = wHeight * 0.55;
+  const ruleH = 3 * sw;
+
+  const bikeBlock = opts.withBike ? bikeH + gapBikeWord : 0;
+  const sloganBlock = opts.withSlogan ? gapWordRule + ruleH + gapRuleSlogan + sloganSize : 0;
+  const total = bikeBlock + wHeight + sloganBlock;
+  const top = (h - total) / 2;
+
+  // bike (centred, above the wordmark)
   if (opts.withBike) {
-    const bikeW = portrait ? w * 0.3 : w * 0.13;
-    const bikeScale = bikeW / 96;
-    const bikeH = 96 * bikeScale;
-    const gapBikeWord = wHeight * 1.0;
+    parts.push(`<g transform="translate(${r(cx - bikeW / 2)},${r(top)}) scale(${r(bikeScale)})">${BIKE_BODY}</g>`);
+  }
 
-    if (opts.withSlogan) {
-      const sloganSize = portrait ? w * 0.03 : w * 0.0135;
-      const gapWordRule = wHeight * 0.7;
-      const gapRuleSlogan = wHeight * 0.55;
-      const ruleH = 3 * sw;
+  // wordmark
+  const wy = top + bikeBlock;
+  parts.push(wordmark(cx - wWidth / 2, wy, wWidth));
 
-      const total = bikeH + gapBikeWord + wHeight + gapWordRule + ruleH + gapRuleSlogan + sloganSize;
-      const top = (h - total) / 2;
-
-      // bike (centred)
-      parts.push(`<g transform="translate(${r(cx - bikeW / 2)},${r(top)}) scale(${r(bikeScale)})">${BIKE_BODY}</g>`);
-
-      // wordmark
-      const wy = top + bikeH + gapBikeWord;
-      parts.push(wordmark(cx - wWidth / 2, wy, wWidth));
-
-      // flat cyan rule (no gradient)
-      const ruleW = wWidth * 0.16;
-      const ry = wy + wHeight + gapWordRule;
-      parts.push(`<rect x="${r(cx - ruleW / 2)}" y="${r(ry)}" width="${r(ruleW)}" height="${r(ruleH)}" fill="${C.cyan}"/>`);
-
-      // slogan
-      const sy = ry + ruleH + gapRuleSlogan + sloganSize;
-      parts.push(
-        `<text x="${r(cx)}" y="${r(sy)}" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="${r(sloganSize)}" letter-spacing="${r(sloganSize * 0.32)}" fill="${C.cyan}">MODERN ENGINEERING WITH NEON SOUL</text>`
-      );
-    } else {
-      // bike + wordmark only, no slogan
-      const total = bikeH + gapBikeWord + wHeight;
-      const top = (h - total) / 2;
-      parts.push(`<g transform="translate(${r(cx - bikeW / 2)},${r(top)}) scale(${r(bikeScale)})">${BIKE_BODY}</g>`);
-      parts.push(wordmark(cx - wWidth / 2, top + bikeH + gapBikeWord, wWidth));
-    }
-  } else {
-    // just the pink wordmark, dead-centre — like the current wallpapers
-    parts.push(wordmark(cx - wWidth / 2, (h - wHeight) / 2, wWidth));
+  // flat cyan rule + slogan
+  if (opts.withSlogan) {
+    const ruleW = wWidth * 0.16;
+    const ry = wy + wHeight + gapWordRule;
+    parts.push(`<rect x="${r(cx - ruleW / 2)}" y="${r(ry)}" width="${r(ruleW)}" height="${r(ruleH)}" fill="${C.cyan}"/>`);
+    const sy = ry + ruleH + gapRuleSlogan + sloganSize;
+    parts.push(
+      `<text x="${r(cx)}" y="${r(sy)}" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="${r(sloganSize)}" letter-spacing="${r(sloganSize * 0.32)}" fill="${C.cyan}">MODERN ENGINEERING WITH NEON SOUL</text>`
+    );
   }
 
   // subtle pink corner ticks
@@ -202,7 +194,9 @@ const SIZES = [
 
 const VARIANTS = [
   { name: "grid", title: "Grid", desc: "Pink wordmark on the Miami grid.", opts: { bg: "grid", withBike: false, label: "grid" } },
+  { name: "grid-slogan", title: "Grid + slogan", desc: "Pink wordmark and slogan on the Miami grid.", opts: { bg: "grid", withBike: false, withSlogan: true, label: "grid + slogan" } },
   { name: "diagonal", title: "Diagonal", desc: "Pink wordmark on the diagonal line field.", opts: { bg: "diagonal", withBike: false, label: "diagonal" } },
+  { name: "diagonal-slogan", title: "Diagonal + slogan", desc: "Pink wordmark and slogan on the diagonal line field.", opts: { bg: "diagonal", withBike: false, withSlogan: true, label: "diagonal + slogan" } },
   { name: "bike", title: "Bike + slogan", desc: "Gravel-bike mascot, wordmark and slogan.", opts: { bg: "both", withBike: true, withSlogan: true, label: "bike + slogan" } },
   { name: "bike-plain", title: "Bike", desc: "Gravel-bike mascot and wordmark, no slogan.", opts: { bg: "both", withBike: true, withSlogan: false, label: "bike" } },
 ];
