@@ -16,7 +16,7 @@ a { color: inherit; }
 
 .cv { position: relative; min-height: 100vh; overflow: hidden; }
 .cv__bg { position: absolute; inset: 0 0 auto; height: 420px; z-index: 0; opacity: 0.7; }
-.container { width: 100%; max-width: 880px; margin: 0 auto; padding: 0 var(--kd-space-6); position: relative; z-index: 1; }
+.container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 var(--kd-space-6); position: relative; z-index: 1; }
 
 /* Nav */
 .nav { display: flex; align-items: center; justify-content: space-between; gap: var(--kd-space-5); padding: var(--kd-space-4) 0; border-bottom: var(--kd-border-hairline) solid var(--color-border); }
@@ -51,7 +51,8 @@ a { color: inherit; }
 /* Sections */
 .cv-section { padding: var(--kd-space-7) 0; border-bottom: var(--kd-border-hairline) solid var(--color-border); }
 .cv-section:last-of-type { border-bottom: 0; }
-.cv-section h2 { font-size: var(--kd-text-xl); letter-spacing: var(--kd-tracking-tight); margin: var(--kd-space-2) 0 var(--kd-space-6); }
+.cv-section > .kd-section-label { margin-bottom: var(--kd-space-2); }
+.cv-section h2 { font-size: var(--kd-text-xl); letter-spacing: var(--kd-tracking-tight); margin: 0 0 var(--kd-space-6); }
 
 /* Experience */
 .cv-entry { margin-bottom: var(--kd-space-6); }

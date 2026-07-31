@@ -1,3 +1,6 @@
 .DS_Store
 
 /alternative
+
+# CV variants containing a personal phone number — keep out of version control
+/assets/cv/*-phone.html
