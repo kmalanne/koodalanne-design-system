@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>koodalanne — rider stickers</title>  <meta name="robots" content="noindex, nofollow" /><link rel="icon" href="../../design-system/logo/favicon.svg" type="image/svg+xml"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --ink:#111218; --ink-700:#181a23; --ink-600:#20222e; --line:#2a2d3a;
+    --pink:#f890e7; --cyan:#0bd3d3; --grey:#ececee; --muted:#9494a0;
+    --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,monospace;
+    --sans:"Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--ink);color:var(--grey);font-family:var(--sans);
+    background-image:linear-gradient(rgba(248,144,231,.05) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(248,144,231,.05) 1px,transparent 1px);
+    background-size:44px 44px;
+  }
+  a{color:inherit}
+  header.top{padding:56px 24px 8px;max-width:1200px;margin:0 auto;text-align:center}
+  header.top h1{font-weight:700;font-size:clamp(1.6rem,4vw,2.6rem);margin:0;letter-spacing:-.01em}
+  header.top h1 b{color:var(--pink)}
+  header.top p{color:var(--muted);margin:.5rem 0 0;font-size:.95rem}
+  header.top .back{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:.78rem;
+    letter-spacing:.05em;color:var(--cyan);text-decoration:none;border:1px solid var(--line);padding:6px 12px}
+  header.top .back:hover{border-color:var(--cyan)}
+  main{max-width:1200px;margin:0 auto;padding:24px}
+  section{margin:40px 0}
+  header.sec{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+    border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:20px}
+  header.sec h2{margin:0;font-size:1.25rem}
+  header.sec h2::before{content:"";display:inline-block;width:10px;height:10px;
+    margin-right:10px;background:var(--pink)}
+  header.sec p{margin:0;color:var(--muted);font-size:.9rem}
+  .grid{display:grid;gap:20px;align-items:start;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+  .grid.sheets{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+  .card{margin:0;background:var(--ink-700);border:1px solid var(--line)}
+  .thumb{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;
+    background:
+      linear-gradient(45deg,#0c0d12 25%,transparent 25%,transparent 75%,#0c0d12 75%),
+      linear-gradient(45deg,#0c0d12 25%,#141620 25%,#141620 75%,#0c0d12 75%);
+    background-size:20px 20px;background-position:0 0,10px 10px;aspect-ratio:4/3;padding:14px}
+  .thumb img{display:block;max-width:100%;max-height:100%;object-fit:contain;
+    image-rendering:pixelated;image-rendering:crisp-edges}
+  .thumb.sheet{aspect-ratio:3/2}
+  .thumb .open{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;color:var(--cyan);
+    background:rgba(12,13,18,.55);opacity:0;transition:opacity .18s ease}
+  .thumb:hover .open,.thumb:focus-visible .open{opacity:1}
+  figcaption{display:flex;align-items:center;justify-content:space-between;gap:8px;
+    padding:10px 12px;font-family:var(--mono);font-size:.78rem}
+  .dims{color:var(--grey);letter-spacing:.03em}
+  .dl{display:flex;gap:8px}
+  .dl a{color:var(--muted);text-decoration:none;border:1px solid var(--line);
+    padding:3px 8px;letter-spacing:.05em;transition:color .15s,border-color .15s}
+  .dl a:hover{color:var(--cyan);border-color:var(--cyan)}
+  footer{max-width:1200px;margin:0 auto;padding:24px;color:var(--muted);
+    font-family:var(--mono);font-size:.72rem;text-align:center}
+  footer a{color:var(--muted);text-decoration:none}
+  footer a:hover{color:var(--cyan)}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>rider <b>stickers</b></h1>
+  <p>40 pixel scenes · click a thumbnail to open full size, or grab the PNG.</p>
+  <a class="back" href="../../website-alternative/index.html#ch05">← Back to the garage</a>
+</header>
+<main>
+<section>
+  <header class="sec"><h2>Scenes</h2><p>The Rider, one moment at a time. Transparent PNG.</p></header>
+  <div class="grid">
+    <figure class="card"><a class="thumb" href="scenes/stand-bike.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/stand-bike.png" alt="At the trailhead sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">At the trailhead</span><span class="dl"><a href="scenes/stand-bike.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/fix-bike.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/fix-bike.png" alt="Fixing the chain sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Fixing the chain</span><span class="dl"><a href="scenes/fix-bike.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/whiteboard.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/whiteboard.png" alt="Route planning sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Route planning</span><span class="dl"><a href="scenes/whiteboard.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/rain-walk.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/rain-walk.png" alt="Into the headwind sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Into the headwind</span><span class="dl"><a href="scenes/rain-walk.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/gravel-path.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/gravel-path.png" alt="Gravel road sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Gravel road</span><span class="dl"><a href="scenes/gravel-path.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/cycle-dust.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/cycle-dust.png" alt="Full send sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Full send</span><span class="dl"><a href="scenes/cycle-dust.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/bridge-dusk.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/bridge-dusk.png" alt="Bridge at dusk sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Bridge at dusk</span><span class="dl"><a href="scenes/bridge-dusk.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/ferry.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/ferry.png" alt="Ferry crossing sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Ferry crossing</span><span class="dl"><a href="scenes/ferry.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/campfire.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/campfire.png" alt="Campfire sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Campfire</span><span class="dl"><a href="scenes/campfire.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/mountain-rock.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/mountain-rock.png" alt="Summit coffee sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Summit coffee</span><span class="dl"><a href="scenes/mountain-rock.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/sunset-beach.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/sunset-beach.png" alt="Sunset stop sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Sunset stop</span><span class="dl"><a href="scenes/sunset-beach.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/bench-city.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/bench-city.png" alt="City bench sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">City bench</span><span class="dl"><a href="scenes/bench-city.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/couch.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/couch.png" alt="Couch commit sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Couch commit</span><span class="dl"><a href="scenes/couch.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/cafe.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/cafe.png" alt="Code coffee repeat sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Code, coffee, repeat</span><span class="dl"><a href="scenes/cafe.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/ground-laptop.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/ground-laptop.png" alt="Field office sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Field office</span><span class="dl"><a href="scenes/ground-laptop.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/desktop-code.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/desktop-code.png" alt="In the zone sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">In the zone</span><span class="dl"><a href="scenes/desktop-code.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/dual-monitor.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/dual-monitor.png" alt="Dual screen sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Dual screen</span><span class="dl"><a href="scenes/dual-monitor.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/desk-day.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/desk-day.png" alt="Desk daylight sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Desk, daylight</span><span class="dl"><a href="scenes/desk-day.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/desk-lamp.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/desk-lamp.png" alt="Late desk sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Late desk</span><span class="dl"><a href="scenes/desk-lamp.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/desk-night.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/desk-night.png" alt="Night shift sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Night shift</span><span class="dl"><a href="scenes/desk-night.png" download>PNG</a></span></figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <header class="sec"><h2>Off the trail</h2><p>New rides &amp; rest stops. Transparent PNG.</p></header>
+  <div class="grid">
+    <figure class="card"><a class="thumb" href="scenes/commute.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/commute.png" alt="The commute sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">The commute</span><span class="dl"><a href="scenes/commute.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/map-check.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/map-check.png" alt="Reading the map sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Reading the map</span><span class="dl"><a href="scenes/map-check.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/gravel-sign.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/gravel-sign.png" alt="Gravel dirt coffee code sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Gravel · dirt · coffee · code</span><span class="dl"><a href="scenes/gravel-sign.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/crossroads-bench.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/crossroads-bench.png" alt="Crossroads sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Crossroads</span><span class="dl"><a href="scenes/crossroads-bench.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/sunset-bike.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/sunset-bike.png" alt="Sunset lookout sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Sunset lookout</span><span class="dl"><a href="scenes/sunset-bike.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/chain-fix.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/chain-fix.png" alt="Chain check sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Chain check</span><span class="dl"><a href="scenes/chain-fix.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/river-overlook.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/river-overlook.png" alt="River overlook sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">River overlook</span><span class="dl"><a href="scenes/river-overlook.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/tent-campfire.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/tent-campfire.png" alt="Camp night sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Camp night</span><span class="dl"><a href="scenes/tent-campfire.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/surfboard-beach.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/surfboard-beach.png" alt="Beach day sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Beach day</span><span class="dl"><a href="scenes/surfboard-beach.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/train-window.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/train-window.png" alt="Window seat sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Window seat</span><span class="dl"><a href="scenes/train-window.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/airport-lounge.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/airport-lounge.png" alt="Departure gate sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Departure gate</span><span class="dl"><a href="scenes/airport-lounge.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/architecture.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/architecture.png" alt="Architecture sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Architecture</span><span class="dl"><a href="scenes/architecture.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/code-cave.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/code-cave.png" alt="The code cave sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">The code cave</span><span class="dl"><a href="scenes/code-cave.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/rug-laptop.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/rug-laptop.png" alt="Floor office sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Floor office</span><span class="dl"><a href="scenes/rug-laptop.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/beanbag-lamp.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/beanbag-lamp.png" alt="Beanbag mode sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Beanbag mode</span><span class="dl"><a href="scenes/beanbag-lamp.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/guitar.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/guitar.png" alt="Off the clock sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Off the clock</span><span class="dl"><a href="scenes/guitar.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/desk-hanging-lamp.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/desk-hanging-lamp.png" alt="Warm desk sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Warm desk</span><span class="dl"><a href="scenes/desk-hanging-lamp.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/night-city-desk.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/night-city-desk.png" alt="City nightshift sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">City nightshift</span><span class="dl"><a href="scenes/night-city-desk.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/deskside-plant.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/deskside-plant.png" alt="Deskside sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Deskside</span><span class="dl"><a href="scenes/deskside-plant.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb" href="scenes/desk-daylight.png" target="_blank" rel="noopener"><img loading="lazy" src="scenes/desk-daylight.png" alt="Daylight desk sticker"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Daylight desk</span><span class="dl"><a href="scenes/desk-daylight.png" download>PNG</a></span></figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <header class="sec"><h2>Full sheets</h2><p>The original composed sprite sheets. 1536×1024 PNG.</p></header>
+  <div class="grid sheets">
+    <figure class="card"><a class="thumb sheet" href="sprite-sheet.png" target="_blank" rel="noopener"><img loading="lazy" src="sprite-sheet.png" alt="Sprite sheet one"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Sheet 01 · 1536×1024</span><span class="dl"><a href="sprite-sheet.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb sheet" href="sprite-sheet-2.png" target="_blank" rel="noopener"><img loading="lazy" src="sprite-sheet-2.png" alt="Sprite sheet two"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Sheet 02 · 1536×1024</span><span class="dl"><a href="sprite-sheet-2.png" download>PNG</a></span></figcaption></figure>
+    <figure class="card"><a class="thumb sheet" href="sprite-sheet-3.png" target="_blank" rel="noopener"><img loading="lazy" src="sprite-sheet-3.png" alt="Sprite sheet three"/><span class="open">Open ↗</span></a><figcaption><span class="dims">Sheet 03 · 1536×1024</span><span class="dl"><a href="sprite-sheet-3.png" download>PNG</a></span></figcaption></figure>
+  </div>
+</section>
+</main>
+<footer>Neon Precision · scenes sliced by <a href="https://github.com/kmalanne/koodalanne-design-system/tree/main/tools/sprites" rel="noopener">tools/sprites</a></footer>
+</body>
+</html>

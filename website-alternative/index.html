@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>koodalanne — The Rider's Dispatches</title>
+  <meta name="description" content="Field notes from a software consultant. Software projects are bike rides, architecture is route planning, bugs are punctures. Same expertise, different universe." />
+  <meta name="author" content="Kai-Mikael Alanne" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#FFF7EF" />
+  <link rel="canonical" href="https://koodalanne.com/ride/" />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="koodalanne" />
+  <meta property="og:title" content="koodalanne — The Rider's Dispatches" />
+  <meta property="og:description" content="Software projects are bike rides. Field notes from an independent software consultant." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://koodalanne.com/ride/" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://koodalanne.com/design-system/logo/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="koodalanne — The Rider's Dispatches." />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="koodalanne — The Rider's Dispatches" />
+  <meta name="twitter:description" content="Software projects are bike rides. Field notes from an independent software consultant." />
+  <meta name="twitter:image" content="https://koodalanne.com/design-system/logo/og-image.png" />
+
+  <link rel="icon" href="../design-system/logo/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="../design-system/logo/icon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Design system (tokens only; this world re-themes them as warm paper) -->
+  <link rel="stylesheet" href="../design-system/tokens/tokens.css" />
+  <link rel="stylesheet" href="site.css" />
+</head>
+
+<body class="rider">
+  <a class="skip" href="#ch01">Skip to the trail</a>
+
+  <!-- Preloader — microcopy: "Loading" becomes "Checking the chain…" -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__bike">
+      <span class="preloader__wheel"></span>
+      <span class="preloader__wheel"></span>
+    </div>
+    <p class="preloader__label">Checking the chain…</p>
+  </div>
+
+  <!-- Companion rider: idles, reacts to the Konami code, rings its bell -->
+  <button class="companion" id="companion" type="button" aria-label="The Rider — give the bell a ring">
+    <img src="../assets/sprite-sheets/scenes/cycle-dust.png" alt="" width="120" height="90" />
+    <span class="companion__speech" id="companionSpeech" aria-live="polite"></span>
+  </button>
+
+  <!-- ===================================================================
+       Header / route map navigation
+       =================================================================== -->
+  <header class="masthead">
+    <div class="wrap masthead__inner">
+      <a class="masthead__brand" href="#ch01">
+        <img src="../design-system/logo/wordmark-ink.svg" alt="koodalanne" />
+      </a>
+
+      <nav class="routemap" aria-label="Route map">
+        <a href="#ch01"><span class="routemap__dot"></span>Starting point</a>
+        <a href="#ch02"><span class="routemap__dot"></span>Terrain</a>
+        <a href="#ch03"><span class="routemap__dot"></span>Ride log</a>
+        <a href="#ch04"><span class="routemap__dot"></span>Field notes</a>
+        <a href="#ch05"><span class="routemap__dot"></span>Garage</a>
+        <a href="#ch06"><span class="routemap__dot"></span>The mechanic</a>
+      </nav>
+
+      <a class="pill-cta" href="#pick-a-route">Pick a route →</a>
+    </div>
+  </header>
+
+  <main id="content">
+
+    <!-- =================================================================
+         Chapter 01 — Starting point (hero)
+         ================================================================= -->
+    <section class="chapter hero" id="ch01">
+      <div class="wrap hero__grid">
+        <div class="hero__copy reveal">
+          <p class="chapter__eyebrow"><span class="chapter__no">Chapter 01</span> · Starting point</p>
+          <p class="status-tag"><span class="status-tag__led"></span>Route status: Ready.</p>
+          <h1 class="hero__title">I help teams <span class="ink-pink">move software forward.</span></h1>
+          <p class="hero__lede">Every project starts somewhere. Usually with more questions than answers, a rough map, and a bike that mostly works.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#ch02">Start the ride →</a>
+            <a class="btn btn--ghost" href="#ch03">Read the ride log</a>
+          </div>
+          <p class="hero__meta">Independent software consultant · Helsinki · Hands-on engineering, architecture &amp; technical leadership.</p>
+        </div>
+
+        <figure class="hero__art reveal">
+          <img class="sprite sprite--hero" src="../assets/sprite-sheets/scenes/stand-bike.png" alt="Pixel-art rider standing beside a gravel bike, ready to set off." />
+          <figcaption class="hero__caption">The Rider, at the trailhead.</figcaption>
+        </figure>
+      </div>
+      <div class="trail-divider" aria-hidden="true"></div>
+    </section>
+
+    <!-- =================================================================
+         Chapter 02 — Today's terrain (services)
+         ================================================================= -->
+    <section class="chapter terrain" id="ch02">
+      <div class="wrap">
+        <header class="chapter__head reveal">
+          <p class="chapter__eyebrow"><span class="chapter__no">Chapter 02</span> · Today's terrain</p>
+          <h2 class="chapter__title">What the trail throws at you</h2>
+          <p class="chapter__intro">Three kinds of ground I ride for a living. Same as your roadmap, only muddier.</p>
+        </header>
+
+        <div class="terrain__grid">
+          <article class="card terrain-card reveal">
+            <div class="terrain-card__art"><img class="sprite" src="../assets/sprite-sheets/scenes/fix-bike.png" alt="Rider crouched, fixing a bike chain with a toolbox." /></div>
+            <span class="marker">Legacy forest</span>
+            <p>Untangling systems that have grown wild — quietly replacing the chain while the wheels keep turning.</p>
+          </article>
+
+          <article class="card terrain-card reveal">
+            <div class="terrain-card__art"><img class="sprite" src="../assets/sprite-sheets/scenes/whiteboard.png" alt="Rider studying an architecture diagram on a whiteboard." /></div>
+            <span class="marker">Product crossroads</span>
+            <p>Helping teams decide where to go next — reading the map right-side-up, then committing to a direction.</p>
+          </article>
+
+          <article class="card terrain-card reveal">
+            <div class="terrain-card__art"><img class="sprite" src="../assets/sprite-sheets/scenes/rain-walk.png" alt="Rider leaning into headwind and rain, carrying a coffee." /></div>
+            <span class="marker">Sprint headwind</span>
+            <p>Keeping momentum when projects slow down — steady cadence, no heroics, into the wind if we must.</p>
+          </article>
+        </div>
+      </div>
+      <div class="trail-divider" aria-hidden="true"></div>
+    </section>
+
+    <!-- =================================================================
+         Chapter 03 — Ride log (case studies)
+         ================================================================= -->
+    <section class="chapter ridelog" id="ch03">
+      <div class="wrap">
+        <header class="chapter__head reveal">
+          <p class="chapter__eyebrow"><span class="chapter__no">Chapter 03</span> · Ride log</p>
+          <h2 class="chapter__title">Every project is a ride</h2>
+          <p class="chapter__intro">Real projects, logged as rides. This is the one I'm on right now — distances are real, and the weather always changes.</p>
+        </header>
+
+        <div class="ridelog__grid ridelog__grid--single">
+
+          <article class="card ride ride--featured reveal">
+            <div class="ride__art"><img class="sprite" src="../assets/sprite-sheets/scenes/bridge-dusk.png" alt="Rider cycling toward a bridge at dusk." /></div>
+            <div class="ride__body">
+              <div class="ride__top">
+                <div>
+                  <p class="ride__no">Ride #001</p>
+                  <p class="ride__sub">Time-tracking platform · ongoing</p>
+                </div>
+                <span class="badge badge--warning">In the saddle</span>
+              </div>
+              <div class="ride__stats">
+                <div><span class="ride__label">Distance</span><strong>Ongoing</strong></div>
+                <div><span class="ride__label">Terrain</span><strong>Greenfield + legacy</strong></div>
+                <div><span class="ride__label">Weather</span><strong>Major pivots ahead</strong></div>
+              </div>
+              <dl class="ride__notes">
+                <div><dt>Mechanical issue</dt><dd>Time-tracking complexity quietly becoming load-bearing.</dd></div>
+                <div><dt>Destination</dt><dd>Still riding — no end in sight.</dd></div>
+              </dl>
+            </div>
+          </article>
+
+        </div>
+      </div>
+      <div class="trail-divider" aria-hidden="true"></div>
+    </section>
+
+    <!-- =================================================================
+         Trail comic — 3 panels
+         ================================================================= -->
+    <section class="chapter comic" aria-label="Trail comic: debugging">
+      <div class="wrap">
+        <header class="chapter__head reveal">
+          <p class="chapter__eyebrow"><span class="chapter__no">Trail comic</span> · Debugging</p>
+          <h2 class="chapter__title">Looks simple.</h2>
+        </header>
+        <div class="comic__strip reveal">
+          <figure class="panel">
+            <img class="sprite" src="../assets/sprite-sheets/scenes/fix-bike.png" alt="Rider finds a flat tire." />
+            <figcaption><span class="panel__no">1</span>“Looks simple.”</figcaption>
+          </figure>
+          <figure class="panel">
+            <img class="sprite" src="../assets/sprite-sheets/scenes/dual-monitor.png" alt="Rider has taken the whole thing apart." />
+            <figcaption><span class="panel__no">2</span>“Interesting.”</figcaption>
+          </figure>
+          <figure class="panel">
+            <img class="sprite" src="../assets/sprite-sheets/scenes/gravel-path.png" alt="Rider rides away, fixed." />
+            <figcaption><span class="panel__no">3</span>“Fixed.”</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="trail-divider" aria-hidden="true"></div>
+    </section>
+
+    <!-- =================================================================
+         Chapter 04 — Field notes (blog)
+         ================================================================= -->
+    <section class="chapter fieldnotes" id="ch04">
+      <div class="wrap fieldnotes__grid">
+        <header class="chapter__head reveal">
+          <p class="chapter__eyebrow"><span class="chapter__no">Chapter 04</span> · Field notes</p>
+          <h2 class="chapter__title">Things noticed on the way</h2>
+          <p class="chapter__intro">Short dispatches, written at the campsite.</p>
+          <figure class="fieldnotes__art">
+            <img class="sprite" src="../assets/sprite-sheets/scenes/mountain-rock.png" alt="Rider resting on a rock with a coffee, mountains behind." />
+          </figure>
+        </header>
+
+        <ol class="notes">
+          <li class="reveal"><span class="notes__no">01</span><a href="notes/monorepos-bikepacking.html">Why monorepos feel like bikepacking</a><span class="notes__meta">Packing light, carrying everything.</span></li>
+          <li class="reveal"><span class="notes__no">02</span><a href="notes/naming-road-signs.html">Naming things after road signs</a><span class="notes__meta">If it needs a legend, it's the wrong name.</span></li>
+          <li class="reveal"><span class="notes__no">03</span><a href="notes/slowing-down.html">The surprisingly useful art of slowing down</a><span class="notes__meta">Cadence beats sprinting.</span></li>
+          <li class="reveal"><span class="notes__no">04</span><a href="notes/debugging-punctures.html">Why debugging resembles fixing punctures</a><span class="notes__meta">Find the hiss before you patch.</span></li>
+        </ol>
+      </div>
+      <div class="trail-divider" aria-hidden="true"></div>
+    </section>
+
+    <!-- =================================================================
+         Chapter 05 — Garage (downloads)
+         ================================================================= -->
+    <section class="chapter garage" id="ch05">
+      <div class="wrap">
+        <header class="chapter__head reveal">
+          <p class="chapter__eyebrow"><span class="chapter__no">Chapter 05</span> · Garage</p>
+          <h2 class="chapter__title">Help yourself to something from the shelf</h2>
+          <p class="chapter__intro">Odds and ends from the workshop. Free. No email required.</p>
+        </header>
+
+        <div class="garage__grid">
+          <a class="card goodie reveal" href="https://kmalanne.github.io/koodalanne-design-system/assets/wallpapers/" rel="noopener">
+            <span class="goodie__tag">Wallpapers</span>
+            <p>Neon-horizon desktops for long rides.</p>
+          </a>
+          <a class="card goodie reveal" href="https://kmalanne.github.io/koodalanne-design-system/assets/sprite-sheets/" rel="noopener">
+            <span class="goodie__tag">Rider stickers</span>
+            <p>The whole sprite sheet. Slap them anywhere.</p>
+          </a>
+          <a class="card goodie reveal" href="https://github.com/kmalanne/koodalanne-design-system/tree/main/assets/terminal" rel="noopener">
+            <span class="goodie__tag">Terminal themes</span>
+            <p>Alacritty, iTerm &amp; Windows Terminal.</p>
+          </a>
+          <a class="card goodie reveal" href="https://github.com/kmalanne/koodalanne-design-system/tree/main/assets/vscode-theme" rel="noopener">
+            <span class="goodie__tag">VS Code theme</span>
+            <p>Neon Precision for your editor.</p>
+          </a>
+          <a class="card goodie reveal" href="https://kmalanne.github.io/koodalanne-design-system/design-system/preview/" rel="noopener">
+            <span class="goodie__tag">Pixel icons</span>
+            <p>The full icon &amp; component gallery.</p>
+          </a>
+          <a class="card goodie reveal" href="../website-final/cv.html">
+            <span class="goodie__tag">The logbook (CV)</span>
+            <p>Where the Rider has actually been.</p>
+          </a>
+        </div>
+      </div>
+      <div class="trail-divider" aria-hidden="true"></div>
+    </section>
+
+    <!-- =================================================================
+         Chapter 06 — Meet the mechanic (about)
+         ================================================================= -->
+    <section class="chapter mechanic" id="ch06">
+      <div class="wrap mechanic__grid">
+        <div class="mechanic__portraits reveal">
+          <figure class="mechanic__photo">
+            <img src="portrait.jpg" alt="Kai-Mikael Alanne, the person behind koodalanne." />
+            <figcaption>The mechanic — real.</figcaption>
+          </figure>
+          <figure class="mechanic__pixel">
+            <img class="sprite" src="../assets/sprite-sheets/scenes/ground-laptop.png" alt="Pixel-art rider sitting on the ground with a laptop." />
+            <figcaption>The Rider — fictional.</figcaption>
+          </figure>
+        </div>
+        <div class="mechanic__copy reveal">
+          <p class="chapter__eyebrow"><span class="chapter__no">Chapter 06</span> · Meet the mechanic</p>
+          <h2 class="chapter__title">The Rider is fictional.<br /><span class="ink-pink">The projects aren't.</span></h2>
+          <p class="mechanic__text">Behind the pixel hat is Kai-Mikael Alanne — an independent software consultant who has spent years as a hands-on tech lead, shipping real products from idea to production. The bike is a metaphor. The engineering is not.</p>
+          <p class="mechanic__text">I like small teams, clear routes, and code that still runs when the weather turns.</p>
+          <a class="btn btn--primary" href="#pick-a-route">Pick a route →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================
+       Footer — end of the ride
+       =================================================================== -->
+  <footer class="footer" id="pick-a-route">
+    <div class="wrap footer__inner">
+      <figure class="footer__art reveal">
+        <img class="sprite" src="../assets/sprite-sheets/scenes/campfire.png" alt="Rider by a campfire and tent at dusk, bike parked nearby." />
+      </figure>
+      <div class="footer__copy reveal">
+        <p class="footer__lines">Camp packed.<br />Bike ready.<br /><span class="ink-pink">Next project?</span></p>
+        <div class="footer__links">
+          <a href="mailto:koodalanne@gmail.com">Email</a>
+          <span class="sep">·</span>
+          <a href="https://github.com/koodalanne" rel="me noopener">GitHub</a>
+          <span class="sep">·</span>
+          <a href="https://www.linkedin.com/" rel="me noopener">LinkedIn</a>
+        </div>
+
+        <!-- Running-jokes legend -->
+        <details class="lore">
+          <summary>Field guide to the recurring lore</summary>
+          <ul class="lore__list">
+            <li><b>Pink bottle</b> — always present.</li>
+            <li><b>Toolbox</b> — solutions.</li>
+            <li><b>Ferry</b> — a deployment.</li>
+            <li><b>Campfire</b> — a retrospective.</li>
+            <li><b>Gravel road</b> — an unknown project.</li>
+            <li><b>Tiny bird</b> — appears when you least expect it.</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+
+    <div class="wrap footer__bar">
+      <button class="bell" id="bell" type="button" aria-label="Ring the bike bell">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v.6A6 6 0 0 1 18 10v4l1.5 2.5a1 1 0 0 1-.9 1.5H5.4a1 1 0 0 1-.9-1.5L6 14v-4a6 6 0 0 1 5-5.4V4a1 1 0 0 1 1-1Zm0 18a2.5 2.5 0 0 1-2.45-2h4.9A2.5 2.5 0 0 1 12 21Z"/></svg>
+        <span>bell</span>
+      </button>
+      <p class="footer__note">Same person. Same expertise. Different universe.</p>
+      <a class="footer__switch" href="../website-final/index.html">Back to the paved road →</a>
+    </div>
+  </footer>
+
+  <!-- 404 microcopy lives in 404.html: "Looks like this trail ends here." -->
+  <script src="rider.js" defer></script>
+</body>
+</html>

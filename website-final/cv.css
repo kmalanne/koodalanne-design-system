@@ -81,6 +81,8 @@ a { color: inherit; }
 .cv-footer { padding: var(--kd-space-6) 0; display: flex; justify-content: space-between; gap: var(--kd-space-4); flex-wrap: wrap; align-items: center; font-size: var(--kd-text-xs); color: var(--color-text-subtle); }
 .cv-footer a { color: var(--color-link); text-decoration: none; }
 .cv-footer .footer-sig { display: inline-flex; align-items: center; gap: var(--kd-space-3); }
+.cv-footer .footer-bike-link { display: inline-flex; line-height: 0; border-radius: var(--radius-control); transition: transform var(--kd-duration-fast) var(--kd-ease-out); }
+.cv-footer .footer-bike-link:hover { transform: translateX(2px) rotate(-4deg); }
 .cv-footer .footer-bike { height: 15px; width: auto; opacity: 0.85; }
 
 @media (max-width: 620px) {
