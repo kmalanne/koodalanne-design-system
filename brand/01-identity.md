@@ -106,7 +106,7 @@ Startup founders · Consultancies needing senior reinforcement.
 
 ## Core creative idea
 
-> **Modern engineering with neon soul.**
+> **Move software forward.**
 
 Alternatives on brand: _"Engineering with a neon heartbeat."_ ·
 _"Built with precision. Finished with personality."_

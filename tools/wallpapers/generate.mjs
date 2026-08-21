@@ -174,7 +174,7 @@ function build(w, h, opts) {
     parts.push(`<rect x="${r(cx - ruleW / 2)}" y="${r(ry)}" width="${r(ruleW)}" height="${r(ruleH)}" fill="${C.cyan}"/>`);
     const sy = ry + ruleH + gapRuleSlogan + sloganSize;
     parts.push(
-      `<text x="${r(cx)}" y="${r(sy)}" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="${r(sloganSize)}" letter-spacing="${r(sloganSize * 0.32)}" fill="${C.cyan}">MODERN ENGINEERING WITH NEON SOUL</text>`
+      `<text x="${r(cx)}" y="${r(sy)}" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="${r(sloganSize)}" letter-spacing="${r(sloganSize * 0.32)}" fill="${C.cyan}">MOVE SOFTWARE FORWARD</text>`
     );
   }
 

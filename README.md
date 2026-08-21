@@ -4,7 +4,7 @@
 
 _The name is always written **koodalanne** — all lowercase, even the first letter._
 
-> Modern engineering with neon soul.
+> Move software forward.
 
 <p align="center">
   <img src="design-system/mascot/bike-alt.svg" alt="koodalanne companion — a gravel bike drawn in neon strokes" width="180" height="180" />

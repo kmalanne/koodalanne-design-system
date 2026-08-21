@@ -38,6 +38,19 @@ module.exports = {
           700: 'var(--kd-cyan-700)',
           DEFAULT: 'var(--kd-cyan-300)',
         },
+        // High-visibility fluorescent brand colors for garments / print
+        'pink-hv': {
+          200: 'var(--kd-pink-hv-200)',
+          300: 'var(--kd-pink-hv-300)',
+          400: 'var(--kd-pink-hv-400)',
+          DEFAULT: 'var(--kd-pink-hv-300)',
+        },
+        'cyan-hv': {
+          200: 'var(--kd-cyan-hv-200)',
+          300: 'var(--kd-cyan-hv-300)',
+          400: 'var(--kd-cyan-hv-400)',
+          DEFAULT: 'var(--kd-cyan-hv-300)',
+        },
         ink: {
           900: 'var(--kd-ink-900)',
           800: 'var(--kd-ink-800)',

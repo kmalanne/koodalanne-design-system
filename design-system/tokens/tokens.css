@@ -33,6 +33,17 @@
   --kd-cyan-600: #066a6a;
   --kd-cyan-700: #044848;
 
+  /* High-visibility — fluorescent versions of the brand pink & cyan, tuned
+     for physical use (garments, screen-print, signage) where the pastel
+     on-screen shades wash out. Derived from the brand hues at near-max
+     chroma. Use for apparel/print, not general UI. */
+  --kd-pink-hv-200: #ff7ad4; /* light fill / halftone */
+  --kd-pink-hv-300: #ff2ec4; /* ★ high-vis pink */
+  --kd-pink-hv-400: #e21ba0; /* deep / outline / knockout */
+  --kd-cyan-hv-200: #5cffef; /* light fill / halftone */
+  --kd-cyan-hv-300: #00f0dc; /* ★ high-vis cyan */
+  --kd-cyan-hv-400: #00c2b2; /* deep / outline / knockout */
+
   /* Sunset — used only in gradients, never as a flat fill */
   --kd-sunset-1: #ff6ac1; /* hot pink */
   --kd-sunset-2: #ff8a5c; /* coral */
