@@ -72,7 +72,7 @@ assets/
 ├── social/                           ← linkedin · x · github banners + social card (SVG)
 ├── wallpapers/                       ← desktop + mobile wallpapers (SVG)
 ├── vscode-theme/                     ← "Neon Precision" VS Code color theme (installable)
-└── terminal/                         ← iTerm2 · Windows Terminal · Alacritty palettes
+└── terminal/                         ← Terminal.app · iTerm2 · Windows Terminal · Alacritty palettes
 ```
 
 ---

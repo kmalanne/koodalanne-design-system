@@ -22,6 +22,9 @@ feel like one world.
 
 ## Install
 
+- **macOS Terminal.app** — double-click `koodalanne.terminal` (or Settings →
+  Profiles → ⋯ → *Import…*), then click *Default* to make it the default profile.
+  Ships with SF Mono 13 and a 100×30 window.
 - **iTerm2** — Settings → Profiles → Colors → *Color Presets…* → Import →
   `koodalanne.itermcolors`, then select it.
 - **Windows Terminal** — copy the object in `windows-terminal.json` into the

@@ -75,6 +75,18 @@ function wordmark(x, y, width, fill = C.pink) {
   return `<g transform="translate(${r(x)},${r(y)}) scale(${r(s)})" fill="${fill}"><g transform="translate(0,1000) scale(1,-1)">${WORD_INNER}</g></g>`;
 }
 
+// the "k" monogram — square glyph, 875 units wide in its own box.
+const MONO_BOX = 875;
+
+// place the monogram: top-left at (x,y), rendered `size` px square.
+function monogram(x, y, size, fill = C.pink) {
+  const s = size / MONO_BOX;
+  return (
+    `<g transform="translate(${r(x)},${r(y)}) scale(${r(s)})" fill="${fill}">` +
+    `<g transform="translate(0,1000) scale(1,-1)"><path d="${MONO_PATH}"/></g></g>`
+  );
+}
+
 // flat Miami grid (uniform, from .kd-grid) — pink hairlines on ink.
 function gridLayer(w, h, sw) {
   const gs = 44 * sw;
@@ -138,6 +150,14 @@ function build(w, h, opts) {
     parts.push(diagonalLayer(w, h, sw, 0.04));
   }
 
+  // monogram compositions short-circuit the stacked wordmark layout
+  if (opts.mode === "monogram") {
+    const size = portrait ? w * 0.62 : Math.min(w, h) * 0.58;
+    parts.push(monogram(cx - size / 2, (h - size) / 2, size, opts.monoFill));
+    parts.push(cornerTicks(w, h, sw));
+    return svgDoc(w, h, parts.join(""), opts.label);
+  }
+
   // wordmark geometry
   const wWidth = portrait ? w * 0.78 : w * 0.5;
   const wHeight = (wWidth * WORD_H) / WORD_W;
@@ -199,6 +219,8 @@ const VARIANTS = [
   { name: "diagonal-slogan", title: "Diagonal + slogan", desc: "Pink wordmark and slogan on the diagonal line field.", opts: { bg: "diagonal", withBike: false, withSlogan: true, label: "diagonal + slogan" } },
   { name: "bike", title: "Bike + slogan", desc: "Gravel-bike mascot, wordmark and slogan.", opts: { bg: "grid", withBike: true, withSlogan: true, label: "bike + slogan" } },
   { name: "bike-plain", title: "Bike", desc: "Gravel-bike mascot and wordmark, no slogan.", opts: { bg: "grid", withBike: true, withSlogan: false, label: "bike" } },
+  { name: "monogram-pink", title: "Monogram — pink", desc: "Oversized pink monogram on the Miami grid.", opts: { bg: "grid", mode: "monogram", monoFill: C.pink, label: "pink monogram" } },
+  { name: "monogram-cyan", title: "Monogram — cyan", desc: "Oversized cyan monogram on the Miami grid.", opts: { bg: "grid", mode: "monogram", monoFill: C.cyan, label: "cyan monogram" } },
 ];
 
 // The original glow wallpapers (hand-authored, not regenerated here).
