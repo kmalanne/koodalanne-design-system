@@ -28,7 +28,6 @@
   header.top p{color:var(--muted);margin:.5rem 0 0;font-size:.95rem}
   header.top .back{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:.78rem;
     letter-spacing:.05em;color:var(--cyan);text-decoration:none;border:1px solid var(--line);padding:6px 12px}
-  header.top .back:hover{border-color:var(--cyan)}
   main{max-width:1200px;margin:0 auto;padding:24px}
   section{margin:40px 0}
   header.sec{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
@@ -51,18 +50,23 @@
   .thumb .open{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
     font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;color:var(--cyan);
     background:rgba(12,13,18,.55);opacity:0;transition:opacity .18s ease}
-  .thumb:hover .open,.thumb:focus-visible .open{opacity:1}
+  .thumb:focus-visible .open{opacity:1}
+  @media (hover:hover){.thumb:hover .open{opacity:1}}
   figcaption{display:flex;align-items:center;justify-content:space-between;gap:8px;
     padding:10px 12px;font-family:var(--mono);font-size:.78rem}
   .dims{color:var(--grey);letter-spacing:.03em}
   .dl{display:flex;gap:8px}
   .dl a{color:var(--muted);text-decoration:none;border:1px solid var(--line);
-    padding:3px 8px;letter-spacing:.05em;transition:color .15s,border-color .15s}
-  .dl a:hover{color:var(--cyan);border-color:var(--cyan)}
+    padding:6px 10px;letter-spacing:.05em;transition:color .15s,border-color .15s}
+  .dl a:active{color:var(--cyan);border-color:var(--cyan)}
   footer{max-width:1200px;margin:0 auto;padding:24px;color:var(--muted);
     font-family:var(--mono);font-size:.72rem;text-align:center}
   footer a{color:var(--muted);text-decoration:none}
-  footer a:hover{color:var(--cyan)}
+  @media (hover:hover){
+    header.top .back:hover{border-color:var(--cyan)}
+    .dl a:hover{color:var(--cyan);border-color:var(--cyan)}
+    footer a:hover{color:var(--cyan)}
+  }
 </style>
 </head>
 <body>

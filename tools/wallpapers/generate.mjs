@@ -130,6 +130,180 @@ function svgDoc(w, h, body, label) {
 }
 
 /* ========================================================================
+   Special-occasion livery — "Sunset"
+   Deliberately off-brand: sunset sky, gradient-filled monogram with a deep
+   purple keyline, gold top edges and palm silhouettes inside the glyph.
+   ======================================================================== */
+
+// monogram path in y-down coords (875 x 875), no flip transform needed.
+const MONO_PATH_YDOWN =
+  "M0 875V0H250V500H500V375H625V250H875V375H750V500H625V625H750V750H875V875H625V750H500V625H250V875Z";
+
+function mulberry32(seed) {
+  return () => {
+    seed |= 0;
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+const f1 = (n) => Math.round(n * 10) / 10;
+const quadPt = (a, b, c, t) => ({
+  x: (1 - t) ** 2 * a.x + 2 * (1 - t) * t * b.x + t * t * c.x,
+  y: (1 - t) ** 2 * a.y + 2 * (1 - t) * t * b.y + t * t * c.y,
+});
+const quadTan = (a, b, c, t) => {
+  const x = 2 * (1 - t) * (b.x - a.x) + 2 * t * (c.x - b.x);
+  const y = 2 * (1 - t) * (b.y - a.y) + 2 * t * (c.y - b.y);
+  const l = Math.hypot(x, y) || 1;
+  return { x: x / l, y: y / l };
+};
+// consistent winding so overlapping subpaths union under nonzero fill.
+const poly = (pts) => {
+  let a = 0;
+  for (let i = 0; i < pts.length; i++) {
+    const p = pts[i], q = pts[(i + 1) % pts.length];
+    a += p.x * q.y - q.x * p.y;
+  }
+  if (a < 0) pts = [...pts].reverse();
+  return "M" + pts.map((p) => `${f1(p.x)} ${f1(p.y)}`).join("L") + "Z";
+};
+
+// tapered stroke along a quadratic curve, as a filled polygon.
+function taper(a, b, c, w0, w1, n = 20) {
+  const L = [], R = [];
+  for (let i = 0; i <= n; i++) {
+    const t = i / n;
+    const p = quadPt(a, b, c, t);
+    const T = quadTan(a, b, c, t);
+    const w = (w0 + (w1 - w0) * t) / 2;
+    L.push({ x: p.x - T.y * w, y: p.y + T.x * w });
+    R.push({ x: p.x + T.y * w, y: p.y - T.x * w });
+  }
+  return poly([...L, ...R.reverse()]);
+}
+
+// procedural palm silhouette: tapered trunk + feathery fronds.
+function palm(crown, base, L, rng) {
+  const d = [];
+  const bend = { x: (crown.x + base.x) / 2 + (base.x - crown.x) * 0.4 + L * 0.12, y: (crown.y + base.y) / 2 };
+  d.push(taper(crown, bend, base, L * 0.06, L * 0.11));
+
+  for (const deg of [-176, -152, -128, -104, -80, -56, -32, -8, 14, 194]) {
+    const a = (deg * Math.PI) / 180;
+    const len = L * (0.75 + 0.35 * rng());
+    const dir = { x: Math.cos(a), y: Math.sin(a) };
+    const end = { x: crown.x + dir.x * len, y: crown.y + dir.y * len + len * 0.38 };
+    const ctl = { x: crown.x + dir.x * len * 0.55, y: crown.y + dir.y * len * 0.55 - len * 0.18 };
+    d.push(taper(crown, ctl, end, len * 0.03, len * 0.004, 12));
+
+    for (let t = 0.1; t < 0.98; t += 0.05) {
+      const p = quadPt(crown, ctl, end, t);
+      const T = quadTan(crown, ctl, end, t);
+      const ll = (len * 0.3 * Math.sin(Math.PI * Math.min(1, t * 1.1)) + len * 0.03) * (0.85 + 0.3 * rng());
+      for (const side of [1, -1]) {
+        let vx = -T.y * side + T.x * 0.9;
+        let vy = T.x * side + T.y * 0.9 + 0.35;
+        const vl = Math.hypot(vx, vy);
+        vx /= vl; vy /= vl;
+        const h = len * 0.03;
+        d.push(poly([
+          { x: p.x - T.x * h, y: p.y - T.y * h },
+          { x: p.x + T.x * h, y: p.y + T.y * h },
+          { x: p.x + vx * ll, y: p.y + vy * ll },
+        ]));
+      }
+    }
+  }
+  return d.join("");
+}
+
+function sunsetClouds(w, h, sw) {
+  const rng = mulberry32(7);
+  const tints = ["#ffe2c4", "#ffcfb2", "#f8b6c6", "#f3a4c0"];
+  const out = [];
+  for (let i = 0; i < 26; i++) {
+    const cy = h * (0.3 + 0.68 * Math.sqrt(rng()));
+    out.push(
+      `<ellipse cx="${r(w * rng())}" cy="${r(cy)}" rx="${r(w * (0.12 + 0.3 * rng()))}" ry="${r(h * (0.006 + 0.018 * rng()))}" ` +
+        `fill="${tints[i % tints.length]}" opacity="${r(0.22 + 0.3 * rng())}"/>`
+    );
+  }
+  return (
+    `<filter id="f-cloud" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="${r(26 * sw)}"/></filter>` +
+    `<g filter="url(#f-cloud)">${out.join("")}</g>`
+  );
+}
+
+function livery(w, h, label) {
+  const portrait = h > w;
+  const sw = w / 1920;
+  const size = portrait ? w * 0.66 : Math.min(w, h) * 0.6;
+  const x = (w - size) / 2;
+  const y = (h - size) / 2;
+  const s = size / MONO_BOX;
+  const K = MONO_PATH_YDOWN;
+  const rng = mulberry32(42);
+
+  const palms =
+    palm({ x: 125, y: 190 }, { x: 70, y: 920 }, 300, rng) +
+    palm({ x: 700, y: 330 }, { x: 760, y: 920 }, 320, rng) +
+    palm({ x: 380, y: 560 }, { x: 420, y: 920 }, 210, rng);
+
+  const defs =
+    `<defs>` +
+    `<linearGradient id="g-sky" x1="0" y1="0" x2="0" y2="1">` +
+    `<stop offset="0" stop-color="#6c78b2"/><stop offset="0.35" stop-color="#ad7fb2"/>` +
+    `<stop offset="0.62" stop-color="#ea9a9e"/><stop offset="0.82" stop-color="#f6ac86"/><stop offset="1" stop-color="#f9b679"/></linearGradient>` +
+    `<radialGradient id="g-sky-blue" cx="0.95" cy="0" r="0.7"><stop offset="0" stop-color="#4e95c8" stop-opacity="0.85"/><stop offset="1" stop-color="#4e95c8" stop-opacity="0"/></radialGradient>` +
+    `<radialGradient id="g-sky-violet" cx="0" cy="0.1" r="0.6"><stop offset="0" stop-color="#7a5fa6" stop-opacity="0.55"/><stop offset="1" stop-color="#7a5fa6" stop-opacity="0"/></radialGradient>` +
+    `<linearGradient id="g-fill" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="875">` +
+    `<stop offset="0" stop-color="#3f5fe4"/><stop offset="0.28" stop-color="#9840d6"/><stop offset="0.52" stop-color="#ff3fb4"/>` +
+    `<stop offset="0.78" stop-color="#f27e9c"/><stop offset="1" stop-color="#efa34f"/></linearGradient>` +
+    `<linearGradient id="g-palm" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="875">` +
+    `<stop offset="0" stop-color="#2c2a9c" stop-opacity="0.7"/><stop offset="0.5" stop-color="#9a2c9e" stop-opacity="0.45"/>` +
+    `<stop offset="1" stop-color="#e2627a" stop-opacity="0.4"/></linearGradient>` +
+    `<clipPath id="clip-k"><path d="${K}"/></clipPath>` +
+    `<mask id="m-top" maskUnits="userSpaceOnUse" x="-50" y="-50" width="975" height="975"><path d="${K}" fill="#fff"/><path d="${K}" fill="#000" transform="translate(0,16)"/></mask>` +
+    `<mask id="m-left" maskUnits="userSpaceOnUse" x="-50" y="-50" width="975" height="975"><path d="${K}" fill="#fff"/><path d="${K}" fill="#000" transform="translate(14,0)"/></mask>` +
+    `<filter id="f-shadow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>` +
+    `</defs>`;
+
+  const gull = (gx, gy, k) =>
+    `<path transform="translate(${r(gx)},${r(gy)}) scale(${r(k)})" d="M-10 0Q-5 -6 0 0Q5 -6 10 0"/>`;
+  const gs = size / 260;
+  const bx = x - size * 0.2;
+  const by = y + size * 0.78;
+  const birds =
+    `<g fill="none" stroke="#6b4b8e" stroke-width="1.6" stroke-linecap="round" opacity="0.85">` +
+    gull(bx, by, gs) + gull(bx + 16 * gs, by + 4 * gs, gs * 0.8) + gull(bx + 6 * gs, by + 14 * gs, gs * 1.1) +
+    `</g>`;
+
+  const glyph =
+    `<g transform="translate(${r(x)},${r(y)}) scale(${r(s * 1000) / 1000})">` +
+    `<path d="${K}" fill="#2a0838" stroke="#2a0838" stroke-width="56" stroke-linejoin="miter" opacity="0.55" transform="translate(14,20)" filter="url(#f-shadow)"/>` +
+    `<path d="${K}" fill="#5a0f70" stroke="#5a0f70" stroke-width="56" stroke-linejoin="miter"/>` +
+    `<path d="${K}" fill="url(#g-fill)"/>` +
+    `<g clip-path="url(#clip-k)"><path d="${palms}" fill="url(#g-palm)"/></g>` +
+    `<rect x="-10" y="-10" width="895" height="895" fill="#e478e6" opacity="0.6" mask="url(#m-left)"/>` +
+    // gold only on the upper edges (stem top + arm staircase)
+    `<rect x="-10" y="-10" width="895" height="410" fill="#ffbf3a" mask="url(#m-top)"/>` +
+    `</g>`;
+
+  const body =
+    defs +
+    `<rect width="${w}" height="${h}" fill="url(#g-sky)"/>` +
+    `<rect width="${w}" height="${h}" fill="url(#g-sky-blue)"/>` +
+    `<rect width="${w}" height="${h}" fill="url(#g-sky-violet)"/>` +
+    sunsetClouds(w, h, sw) +
+    birds +
+    glyph;
+  return svgDoc(w, h, body, label);
+}
+
+/* ========================================================================
    Composition builder
    opts: { bg: 'grid' | 'diagonal' | 'both', withBike: bool, label }
    ======================================================================== */
@@ -138,6 +312,8 @@ function build(w, h, opts) {
   const sw = w / 1920;
   const cx = w / 2;
   const parts = [];
+
+  if (opts.mode === "livery") return livery(w, h, opts.label);
 
   // flat ink base (no gradient)
   parts.push(`<rect width="${w}" height="${h}" fill="${C.ink800}"/>`);
@@ -221,6 +397,7 @@ const VARIANTS = [
   { name: "bike-plain", title: "Bike", desc: "Gravel-bike mascot and wordmark, no slogan.", opts: { bg: "grid", withBike: true, withSlogan: false, label: "bike" } },
   { name: "monogram-pink", title: "Monogram — pink", desc: "Oversized pink monogram on the Miami grid.", opts: { bg: "grid", mode: "monogram", monoFill: C.pink, label: "pink monogram" } },
   { name: "monogram-cyan", title: "Monogram — cyan", desc: "Oversized cyan monogram on the Miami grid.", opts: { bg: "grid", mode: "monogram", monoFill: C.cyan, label: "cyan monogram" } },
+  { name: "livery-sunset", title: "Livery — Sunset", desc: "Special-occasion livery (off-brand by design): sunset-gradient monogram with palm silhouettes.", opts: { mode: "livery", label: "sunset livery" } },
 ];
 
 // The original glow wallpapers (hand-authored, not regenerated here).
@@ -352,14 +529,16 @@ function gallery(groups) {
   .thumb .open{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
     font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;color:var(--cyan);
     background:rgba(12,13,18,.55);opacity:0;transition:opacity .18s ease}
-  .thumb:hover .open,.thumb:focus-visible .open{opacity:1}
+  .thumb:focus-visible .open{opacity:1}
+  @media (hover:hover){.thumb:hover .open{opacity:1}}
   figcaption{display:flex;align-items:center;justify-content:space-between;
     padding:10px 12px;font-family:var(--mono);font-size:.78rem}
   .dims{color:var(--grey);letter-spacing:.03em}
   .dl{display:flex;gap:8px}
   .dl a{color:var(--muted);text-decoration:none;border:1px solid var(--line);
-    padding:3px 8px;letter-spacing:.05em;transition:color .15s,border-color .15s}
-  .dl a:hover{color:var(--cyan);border-color:var(--cyan)}
+    padding:6px 10px;letter-spacing:.05em;transition:color .15s,border-color .15s}
+  .dl a:active{color:var(--cyan);border-color:var(--cyan)}
+  @media (hover:hover){.dl a:hover{color:var(--cyan);border-color:var(--cyan)}}
   footer{max-width:1200px;margin:0 auto;padding:24px;color:var(--muted);
     font-family:var(--mono);font-size:.72rem;text-align:center}
 </style>

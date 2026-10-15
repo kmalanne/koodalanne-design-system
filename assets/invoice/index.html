@@ -29,6 +29,10 @@
     .pay { margin-top: var(--kd-space-7); background: var(--color-surface); border: var(--kd-border-hairline) solid var(--color-border); border-left: var(--kd-border-thick) solid var(--color-accent-secondary); border-radius: var(--radius-card); padding: var(--kd-space-4) var(--kd-space-5); font-size: var(--kd-text-sm); }
     .pay .k { font-family: var(--kd-font-mono); font-size: var(--kd-text-2xs); text-transform: uppercase; letter-spacing: var(--kd-tracking-wide); color: var(--color-text-subtle); }
     .foot { margin-top: var(--kd-space-7); padding-top: var(--kd-space-4); border-top: var(--kd-border-hairline) solid var(--color-border); font-size: var(--kd-text-xs); color: var(--color-text-subtle); display: flex; justify-content: space-between; gap: var(--kd-space-4); flex-wrap: wrap; }
+    @media (max-width: 620px) {
+      .page { margin: 0; padding: var(--kd-space-6) var(--kd-space-5); }
+      .parties { grid-template-columns: 1fr; }
+    }
     @media print { body { background:#fff; } .page { margin:0; border:0; box-shadow:none; max-width:none; padding: 24mm 20mm; } }
   </style>
 </head>
@@ -78,7 +82,7 @@
     </div>
 
     <div class="foot">
-      <span>Thank you — confidence from first meeting to production.</span>
+      <span>Thank you.</span>
       <span>koodalanne.com</span>
     </div>
   </article>

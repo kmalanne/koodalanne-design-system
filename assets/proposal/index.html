@@ -39,6 +39,12 @@
     .sign .line { border-top: var(--kd-border-hairline) solid var(--color-border-strong); padding-top: var(--kd-space-2); font-size: var(--kd-text-sm); color: var(--color-text-muted); }
     .foot { margin-top: var(--kd-space-7); padding-top: var(--kd-space-4); border-top: var(--kd-border-hairline) solid var(--color-border); font-size: var(--kd-text-xs); color: var(--color-text-subtle); display: flex; justify-content: space-between; gap: var(--kd-space-4); flex-wrap: wrap; }
     .accent { color: var(--color-accent); }
+    h1, h2 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+    @media (max-width: 620px) {
+      .page { margin: 0; padding: var(--kd-space-6) var(--kd-space-5); }
+      .meta, .sign { grid-template-columns: 1fr; }
+    }
     @media print {
       body { background: #fff; }
       .page { margin: 0; border: 0; box-shadow: none; max-width: none; padding: 24mm 20mm; }
@@ -58,7 +64,7 @@
     </header>
 
     <h1>Platform modernization &amp; technical leadership</h1>
-    <p class="muted">Prepared for <strong>Northwind Retail Group</strong> — Attn: VP Engineering.</p>
+    <p class="muted">Prepared for <strong>Northwind Retail Group</strong>, attn. VP Engineering.</p>
 
     <div class="meta">
       <div><div class="k">Engagement</div>Fractional lead + delivery</div>
@@ -68,25 +74,25 @@
 
     <h2>The problem</h2>
     <p>Your checkout platform has grown faster than its architecture. Releases are slow,
-      ownership is spread thin, and the team is firefighting instead of building. You don't
-      need more hands — you need someone to <span class="accent">own the problem</span> from
-      architecture to production and leave the team stronger than they were found.</p>
+      ownership is spread thin, and the team spends most of its time firefighting. More
+      developers won't fix that. This engagement puts one person in charge from architecture
+      to production, and leaves the team able to run the platform without me.</p>
 
     <h2>Approach</h2>
     <ul>
-      <li><strong>Discovery (wk 1–2)</strong> — map the system, name the real constraint, agree success metrics.</li>
-      <li><strong>Architecture (wk 3–5)</strong> — a modernization plan the team can grow on; documented, pragmatic.</li>
-      <li><strong>Delivery (wk 6–12)</strong> — ship in slices, mentor in review, hand over with confidence.</li>
+      <li><strong>Discovery (wk 1–2):</strong> map the system, find the real bottleneck and agree on how we measure success.</li>
+      <li><strong>Architecture (wk 3–5):</strong> a written modernization plan, sized to what the team can actually take on.</li>
+      <li><strong>Delivery (wk 6–12):</strong> ship in small slices, coach through code review, then hand over.</li>
     </ul>
 
     <h2>Deliverables</h2>
     <table>
       <thead><tr><th>#</th><th>Deliverable</th><th>Outcome</th></tr></thead>
       <tbody>
-        <tr><td>01</td><td>Architecture decision record set</td><td>Shared, durable technical direction</td></tr>
-        <tr><td>02</td><td>Modernized checkout service</td><td>Faster, testable, independently deployable</td></tr>
-        <tr><td>03</td><td>CI/CD &amp; release pipeline</td><td>Confident, frequent releases</td></tr>
-        <tr><td>04</td><td>Team enablement &amp; handover</td><td>The team owns it after I leave</td></tr>
+        <tr><td>01</td><td>Architecture decision records</td><td>Key decisions written down, with the reasons</td></tr>
+        <tr><td>02</td><td>Modernized checkout service</td><td>Testable and deployable on its own</td></tr>
+        <tr><td>03</td><td>CI/CD &amp; release pipeline</td><td>Small, frequent, low-risk releases</td></tr>
+        <tr><td>04</td><td>Team enablement &amp; handover</td><td>The team runs it without me</td></tr>
       </tbody>
     </table>
 
@@ -99,11 +105,11 @@
         <tr class="total"><td>Total (ex. VAT)</td><td class="num"></td><td class="num"></td><td class="num">€54,000</td></tr>
       </tbody>
     </table>
-    <p class="muted">Fixed-scope, fixed-price. Billed monthly. Either party may pause with two weeks' notice.</p>
+    <p class="muted">Fixed scope, fixed price. Billed monthly. Either party can pause with two weeks' notice.</p>
 
     <div class="sign">
-      <div class="line">Signed — koodalanne</div>
-      <div class="line">Signed — Northwind Retail Group</div>
+      <div class="line">Signed for koodalanne</div>
+      <div class="line">Signed for Northwind Retail Group</div>
     </div>
 
     <div class="foot">
